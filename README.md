@@ -83,12 +83,16 @@ The causal structure is correct when the LOSS drops the most, even though it may
 
 - loss  
 <img src="./images/loss2.png" width="30%">  
+
 - 1  
 <img src="./images/Digraph1.png" width="30%">  
+
 - 2  
 <img src="./images/Digraph2.png" width="30%">  
+
 - 3  
 <img src="./images/Digraph3.png" width="30%">  
+
 - 4   
 <img src="./images/Digraph.png" width="30%">  
 
