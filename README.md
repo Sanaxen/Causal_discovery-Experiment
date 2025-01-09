@@ -5,16 +5,16 @@ The calculation assumes the existence of an unobserved common cause $`\mu`$.
 This is not practical at all because the computation time exceeds the acceptable limit.
 
  **post-nonlinear model**  
-### $` y=g^{-1} (f(x) + \epsilon ) `$
+ $` y=g^{-1} (f(x) + \epsilon ) `$
   
 We are experimenting with a similar model of post-nonlinear model.  
-### $` y=g^{-1} (f(x, \mu) + \epsilon ) `$  
-$` \mu `$ is a generalized Gaussian distribution 
+ $` y=g^{-1} (f(x, \mu) + \epsilon ) `$  
+$` \mu `$ is a generalized Gaussian distribution $`\,`$
  $` \mu(x) = \frac{\beta^{1/2}}{2\Gamma(1+1/\rho)} exp(-\beta^{1/2}|x-\tilde{x}|^{\rho})`$
 
 $`\beta`$ and $`\rho`$ are parameters to be determined and estimated by optimization.  
 
-### $` loss = max(w1 \,max(e_{i}), w2\,max(MI(e_{i},e_{j})))+\epsilon\,(w1 \,max(e_{i}), w2\,max(MI(e_{i},e_{j})))`$
+ $` loss = max(w1 \,max(e_{i}), w2\,max(MI(e_{i},e_{j})))+\epsilon\,(w1 \,max(e_{i}), w2\,max(MI(e_{i},e_{j})))`$
 
 MI is an independent variable if it is zero in the mutual information content.   
 In other words, $`\mu`$ is obtained so that both the residuals and
