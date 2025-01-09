@@ -4,26 +4,26 @@ The idea is to use deep learning to directly estimate g and f in the post-nonlin
 The calculation assumes the existence of an unobserved common cause μ.
 This is not practical at all because the computation time exceeds the acceptable limit.
 
-<img src="./images/post-nonlinear model.png">  
-We are experimenting with a similar model of post-nonlinear model.
+ **post-nonlinear model**  
+ ### $ y=g^{-1} (f(x) + \epsilon ) $
+  
+We are experimenting with a similar model of post-nonlinear model.  
+### $ y=g^{-1} (f(x, \mu) + \epsilon ) $  
+$ \mu $ is a generalized Gaussian distribution 
+### $ \mu(x) = \frac{\beta^{1/2}}{2\Gamma(1+1/\rho)} exp(-\beta^{1/2}|x-\tilde{x}|^{\rho})$
 
-<img src="./images/image0.png" width="55%">  
+$\beta$ and $\rho$ are parameters to be determined and estimated by optimization.  
 
-μ is a generalized Gaussian distribution  
-
-<img src="./images/image1.png">  
-β and ρ are parameters to be determined and estimated by optimization.  
-
-<img src="./images/image3.png" width="75%">  
+$ loss = max(w1 \,max(e_{i}), w2\,max(MI(e_{i},e_{j})))+\epsilon\,(w1 \,max(e_{i}), w2\,max(MI(e_{i},e_{j})))$
 
 MI is an independent variable if it is zero in the mutual information content.   
-In other words, μ is obtained so that both the residuals and
+In other words, $\mu$ is obtained so that both the residuals and
  the mutual information content between residuals are minimized.   
  Loss loss is an expanded Tchebyshev scalarization function.  
 
-- ε=0.0001
-- w1=0.7
-- w2=0.4
+- $\epsilon$=0.0001
+- $w1$=0.7
+- $w2$=0.4
 
 ---
 ## Experiment
@@ -49,7 +49,7 @@ Solid and dashed lines are estimated edges and ground truths, respectively.
 - Experiment  
 <img src="./images/image8.png" width="65%">   
 
-### reference document
+## reference document
 - https://www.ds.shiga-u.ac.jp/inga/
 - https://www.jst.go.jp/kisoken/aip/result/event/jst-riken_sympo2021/pdf/shimizu.pdf
 - https://www.socialpsychology.jp/seminar/pdf/2016SS_SShimizu.pdf
