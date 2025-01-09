@@ -28,7 +28,7 @@ In other words, $`\mu`$ is obtained so that both the residuals and
 ---
 ## Experiment
 - Causal structure compared  
-<img src="./images/image5.png"  width="65%">  
+<img src="./images/image5.png"  width="50%">  
 reference https://proceedings.mlr.press/v177/uemura22a/uemura22a.pdf  
 Solid and dashed lines are estimated edges and ground truths, respectively.
 
@@ -41,7 +41,7 @@ The values in parentheses indicate the correlation coefficient, the values outsi
 Feature Importance is a relative value when the maximum is 1.0.
 
 - Causal structure compared  
-<img src="./images/image7.png" width="55%">  
+<img src="./images/image7.png" width="50%">  
 reference https://proceedings.mlr.press/v177/uemura22a/uemura22a.pdf  
 Solid and dashed lines are estimated edges and ground truths, respectively.  
 
