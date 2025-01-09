@@ -51,7 +51,21 @@ Solid and dashed lines are estimated edges and ground truths, respectively.
 
 
 - Experiment  
-<img src="./images/image8.png" width="65%">   
+<img src="./images/Digraph2.png" width="50%">   
+
+---
+## Probability of possible causality from each variable  
+<img src="./images/b_probability.png" width="20%">  
+
+## Examples of output other than causal structure  
+<img src="./images/Causal_effect.png" width="20%">  
+
+## Error for each variable in the causal structure model  
+<img src="./images/causal_multi_histgram.png" width="40%">  
+
+---
+## Estimate contributions from unobserved variables  
+<img src="./images/Digraph_0.png" width="50%">  
 
 ## reference document
 - https://www.ds.shiga-u.ac.jp/inga/

@@ -11,14 +11,14 @@ del lingam.model.mu.csv
 
 
 
-:¬‚³‚¢‘ŠŠÖ‚ğ‚ÂŠÖŒW‚ğíœ
+:Remove relationships with small correlations
 set min_cor=0.0
 
-:¬‚³‚¢‘ŠŒİî•ñ—Ê‚ğ‚ÂŠÖŒW‚ğíœ
+:Remove relationships with small mutual information content
 set mi=0
 
 
-:¬‚³‚¢ˆö‰ÊŒø‰ÊŠÖŒW‚ğíœ
+:Remove small causal effect relationships
 set min_delete=0.01
 set min_delete=0.23
 
@@ -38,7 +38,7 @@ echo  --load_model lingam.model  --loss_data_load 0 >> comandline_args_tmp_
 echo  --min_cor_delete %min_cor% >> comandline_args_tmp_
 echo  --mutual_information_cut %mi% >> comandline_args_tmp_
 echo  --min_delete %min_delete% >> comandline_args_tmp_
-:‘ŠŒİî•ñ—Ê‰Â‹‰»
+:Mutual information visualization
 :echo  --mutual_information_values 1 >> comandline_args_tmp_
 echo  --confounding_factors_upper 1.5 >> comandline_args_tmp_
 echo  --view_confounding_factors 1 >> comandline_args_tmp_
