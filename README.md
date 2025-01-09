@@ -67,6 +67,18 @@ Solid and dashed lines are estimated edges and ground truths, respectively.
 ## Estimate contributions from unobserved variables  
 <img src="./images/Digraph_0.png" width="50%">  
 
+---
+## Note  
+This is still an experimental implementation.
+Therefore, the optimization is close to a parameter brute force approach,   
+where randomly generated parameters are set and computed, and the optimal solution is updated as the LOSS becomes smaller.   
+Therefore, it is very difficult to determine at what point to stop the calculation.
+<img src="./images/Digraph2.png" width="20%">
+<img src="./images/loss.png" width="50%">  
+In this example, it took 59 iterations to obtain the correct result, which I believe is very rare.
+This is a very fortunate case.
+In other experiments, it has often occurred that 20,000 calculations are required.  
+
 ## reference document
 - https://www.ds.shiga-u.ac.jp/inga/
 - https://www.jst.go.jp/kisoken/aip/result/event/jst-riken_sympo2021/pdf/shimizu.pdf
@@ -79,4 +91,5 @@ Solid and dashed lines are estimated edges and ground truths, respectively.
 - Diviyan Kalainathan et.al., Structural Agnostic Modeling: Adversarial Learning of Causal Graphs
 - A Multivariate Causal Discovery based on Post-Nonlinear Model, CLeaR 2022
 - Estimation Of Post-Nonlinear Causal Models Using Autoencoding Structure, ICASSP 2020
+
 
