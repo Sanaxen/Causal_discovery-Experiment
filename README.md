@@ -99,7 +99,7 @@ In other words, different causal (parent-child) structures are obtained.
 Based on the causal relationship (parent-child relationship) based on the structure of this B matrix
 $`x \rightarrow y`$ relationship can be obtained. This gives us $`y=g^{-1}f(x, \mu)`$
 and $`h=g^{-1}f`$ is estimated by deep learning.
-In other words, the optimization is performed so that $`\|(y_pred - y_obs)\|`$ is minimized, but $`\|g(y_pred) - y_obs\|`$ must also be minimized. 
+In other words, the optimization is performed so that $`\|(y_{pred} - y_{obs})\|`$ is minimized, but $`\|g(y_{pred}) - y_{obs}\|`$ must also be minimized. 
 In addition, adjust the undetermined parameters so that the loss is minimized.
 $` loss = max(w1 \,max(e_{i}), w2\,max(MI(e_{i},e_{j})))+\epsilon\,(w1 \,max(e_{i}), w2\,max(MI(e_{i},e_{j})))`$
 
