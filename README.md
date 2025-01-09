@@ -5,7 +5,7 @@ The calculation assumes the existence of an unobserved common cause μ.
 This is not practical at all because the computation time exceeds the acceptable limit.
 
  **post-nonlinear model**  
- $ y=g^{-1} (f(x) + \epsilon ) $
+$` y=g^{-1} (f(x) + \epsilon ) `$
   
 We are experimenting with a similar model of post-nonlinear model.  
  $ y=g^{-1} (f(x, \mu) + \epsilon ) $  
