@@ -26,8 +26,9 @@ In other words, μ is obtained so that both the residuals and
 - Causal structure compared
 <img src="./images/image5.png">  
 reference https://proceedings.mlr.press/v177/uemura22a/uemura22a.pdf  
+Solid and dashed lines are estimated edges and ground truths, respectively.
 
-- ICA ICA-LiNGAM <img src="./images/image4.png">  
+- ICA-LiNGAM <img src="./images/image4.png">  
   
 - Experiment <img src="./images/Digraph.png">   
 The values in parentheses indicate the correlation coefficient, the values outside the parentheses indicate the feature importance, and the percentage values indicate the confidence level.
@@ -35,6 +36,8 @@ Feature Importance is a relative value when the maximum is 1.0.
 
 - Causal structure compared <img src="./images/image7.png">  
 reference https://proceedings.mlr.press/v177/uemura22a/uemura22a.pdf  
+Solid and dashed lines are estimated edges and ground truths, respectively.  
+
 
 - Experiment <img src="./images/image8.png">   
 
