@@ -51,7 +51,7 @@ Solid and dashed lines are estimated edges and ground truths, respectively.
 
 
 - Experiment  
-<img src="./images/Digraph2.png" width="50%">   
+<img src="./images/Digraph_2.png" width="50%">   
 
 ---
 ## Probability of possible causality from each variable  
@@ -72,12 +72,36 @@ Solid and dashed lines are estimated edges and ground truths, respectively.
 This is still an experimental implementation.
 Therefore, the optimization is close to a parameter brute force approach,   
 where randomly generated parameters are set and computed, and the optimal solution is updated as the LOSS becomes smaller.   
-Therefore, it is very difficult to determine at what point to stop the calculation.
-<img src="./images/Digraph2.png" width="20%">
+Therefore, it is very difficult to determine at what point to stop the calculation.  
+<img src="./images/Digraph_2.png" width="20%">
 <img src="./images/loss.png" width="50%">  
 In this example, it took 59 iterations to obtain the correct result, which I believe is very rare.
 This is a very fortunate case.
 In other experiments, it has often occurred that 20,000 calculations are required.  
+
+The causal structure is correct when the LOSS drops the most, even though it may change only slightly.  
+
+- loss  
+<img src="./images/loss2.png" width="30%">  
+- 1  
+<img src="./images/Digraph1.png" width="30%">  
+- 2  
+<img src="./images/Digraph2.png" width="30%">  
+- 3  
+<img src="./images/Digraph3.png" width="30%">  
+- 4   
+<img src="./images/Digraph.png" width="30%">  
+
+Roughly speaking, ICA-LiNGAM is used. However, LiNGAM is used to obtain the B matrix, so it does not have to be LiNGAM.  
+The B matrix is used as a causal (parent-child) structure and ignored for their linear relationship.  
+Adding fluctuations to the input data changes the causal structure (B matrix) that is computed and calculated.  
+In other words, different causal (parent-child) structures are obtained.
+Based on the causal relationship (parent-child relationship) based on the structure of this B matrix
+$`x \rightarrow y`$ relationship can be obtained. This gives us $`y=g^{-1}f(x, \mu)`$
+and $'h=g^{-1}f`$ is estimated by deep learning.
+In other words, the optimization is performed so that $`\|(y_pred - y_obs)\|`$ is minimized, but $`\|g(y_pred) - y_obs\|`$ must also be minimized. 
+In addition, adjust the undetermined parameters so that the loss is minimized.
+$` loss = max(w1 \,max(e_{i}), w2\,max(MI(e_{i},e_{j})))+\epsilon\,(w1 \,max(e_{i}), w2\,max(MI(e_{i},e_{j})))`$
 
 ## reference document
 - https://www.ds.shiga-u.ac.jp/inga/

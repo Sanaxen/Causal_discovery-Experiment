@@ -24,7 +24,7 @@ set min_delete=0.23
 
 set lasso=0.0
 
-set R_INSTALL_PATH=C:\Program Files\R\R-4.2.3
+set R_INSTALL_PATH="C:\Program Files\R\R-4.2.3"
 set R_LIBS_USER=%R_INSTALL_PATH%\library
 
 set r=%R_INSTALL_PATH%\bin
@@ -52,6 +52,7 @@ copy Digraph.png ..\Causal_Search_Experiment /v /y
 
 :goto end
 
+call ..\init.bat
 %r%\R.exe CMD BATCH --slave --vanilla  b_probability_barplot.r
 %r%\R.exe CMD BATCH --slave --vanilla  Causal_effect.r
 %r%\R.exe CMD BATCH --slave --vanilla  fit.r
