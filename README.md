@@ -29,20 +29,24 @@ In other words, $`\mu`$ is obtained so that both the residuals and
 ## Experiment
 - Causal structure compared  
 <img src="./images/image5.png"  width="50%">  
-reference https://proceedings.mlr.press/v177/uemura22a/uemura22a.pdf  
+reference https://proceedings.mlr.press/v177/uemura22a/uemura22a.pdf   
+
 Solid and dashed lines are estimated edges and ground truths, respectively.
 
 - ICA-LiNGAM  
-<img src="./images/image4.png" width="65%">  
-  
+<img src="./images/image4.png" width="65%">   
+
+  The numbers mean the correlation coefficient in parentheses and the linear coefficient outside the parentheses.
 - Experiment  
 <img src="./images/Digraph.png" width="65%">   
+
 The values in parentheses indicate the correlation coefficient, the values outside the parentheses indicate the feature importance, and the percentage values indicate the confidence level.
 Feature Importance is a relative value when the maximum is 1.0.
 
 - Causal structure compared  
 <img src="./images/image7.png" width="50%">  
-reference https://proceedings.mlr.press/v177/uemura22a/uemura22a.pdf  
+reference https://proceedings.mlr.press/v177/uemura22a/uemura22a.pdf   
+
 Solid and dashed lines are estimated edges and ground truths, respectively.  
 
 
