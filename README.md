@@ -1,29 +1,29 @@
 # Causal_discovery-Experiment
 
 The idea is to use deep learning to directly estimate g and f in the post-nonlinear model in an attempt to perform nonlinear causal search. However, we impose a constraint to maximize the independence between residuals.  
-The calculation assumes the existence of an unobserved common cause μ.
+The calculation assumes the existence of an unobserved common cause $`\mu`$.
 This is not practical at all because the computation time exceeds the acceptable limit.
 
  **post-nonlinear model**  
-$` y=g^{-1} (f(x) + \epsilon ) `$
+### $` y=g^{-1} (f(x) + \epsilon ) `$
   
 We are experimenting with a similar model of post-nonlinear model.  
- $ y=g^{-1} (f(x, \mu) + \epsilon ) $  
-$ \mu $ is a generalized Gaussian distribution 
- $ \mu(x) = \frac{\beta^{1/2}}{2\Gamma(1+1/\rho)} exp(-\beta^{1/2}|x-\tilde{x}|^{\rho})$
+### $` y=g^{-1} (f(x, \mu) + \epsilon ) `$  
+$` \mu `$ is a generalized Gaussian distribution 
+ $` \mu(x) = \frac{\beta^{1/2}}{2\Gamma(1+1/\rho)} exp(-\beta^{1/2}|x-\tilde{x}|^{\rho})`$
 
-$\beta$ and $\rho$ are parameters to be determined and estimated by optimization.  
+$`\beta`$ and $`\rho`$ are parameters to be determined and estimated by optimization.  
 
-$ loss = max(w1 \,max(e_{i}), w2\,max(MI(e_{i},e_{j})))+\epsilon\,(w1 \,max(e_{i}), w2\,max(MI(e_{i},e_{j})))$
+### $` loss = max(w1 \,max(e_{i}), w2\,max(MI(e_{i},e_{j})))+\epsilon\,(w1 \,max(e_{i}), w2\,max(MI(e_{i},e_{j})))`$
 
 MI is an independent variable if it is zero in the mutual information content.   
-In other words, $\mu$ is obtained so that both the residuals and
+In other words, $`\mu`$ is obtained so that both the residuals and
  the mutual information content between residuals are minimized.   
  Loss loss is an expanded Tchebyshev scalarization function.  
 
-- $\epsilon$=0.0001
-- $w1$=0.7
-- $w2$=0.4
+- $`\epsilon`$=0.0001
+- $`w1`$=0.7
+- $`w2`$=0.4
 
 ---
 ## Experiment
