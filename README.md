@@ -7,11 +7,15 @@ This is not practical at all because the computation time exceeds the acceptable
 <img src="./images/post-nonlinear model.png">  
 We are experimenting with a similar model of post-nonlinear model.
 
-<img src="./images/image0.png">  
+<img src="./images/image0.png" width="55%">  
+
 μ is a generalized Gaussian distribution  
+
 <img src="./images/image1.png">  
 β and ρ are parameters to be determined and estimated by optimization.  
-<img src="./images/image3.png">  
+
+<img src="./images/image3.png" width="75%">  
+
 MI is an independent variable if it is zero in the mutual information content.   
 In other words, μ is obtained so that both the residuals and
  the mutual information content between residuals are minimized.   
@@ -22,24 +26,28 @@ In other words, μ is obtained so that both the residuals and
 - w2=0.4
 
 ---
-## experiment
-- Causal structure compared
-<img src="./images/image5.png">  
+## Experiment
+- Causal structure compared  
+<img src="./images/image5.png"  width="65%">  
 reference https://proceedings.mlr.press/v177/uemura22a/uemura22a.pdf  
 Solid and dashed lines are estimated edges and ground truths, respectively.
 
-- ICA-LiNGAM <img src="./images/image4.png">  
+- ICA-LiNGAM  
+<img src="./images/image4.png" width="65%">  
   
-- Experiment <img src="./images/Digraph.png">   
+- Experiment  
+<img src="./images/Digraph.png" width="65%">   
 The values in parentheses indicate the correlation coefficient, the values outside the parentheses indicate the feature importance, and the percentage values indicate the confidence level.
 Feature Importance is a relative value when the maximum is 1.0.
 
-- Causal structure compared <img src="./images/image7.png">  
+- Causal structure compared  
+<img src="./images/image7.png" width="55%">  
 reference https://proceedings.mlr.press/v177/uemura22a/uemura22a.pdf  
 Solid and dashed lines are estimated edges and ground truths, respectively.  
 
 
-- Experiment <img src="./images/image8.png">   
+- Experiment  
+<img src="./images/image8.png" width="65%">   
 
 ### reference document
 - https://www.ds.shiga-u.ac.jp/inga/
