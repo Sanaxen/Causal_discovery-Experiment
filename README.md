@@ -81,7 +81,7 @@ In other experiments, it has often occurred that 20,000 calculations are require
 
 The causal structure is correct when the LOSS drops the most, even though it may change only slightly.  
 
-- loss  
+- loss  1->2->3->4  
 <img src="./images/loss2.png" width="30%">  
 
 - 1  
@@ -100,11 +100,19 @@ Roughly speaking, ICA-LiNGAM is used. However, LiNGAM is used to obtain the B ma
 The B matrix is used as a causal (parent-child) structure and ignored for their linear relationship.  
 Adding fluctuations to the input data changes the causal structure (B matrix) that is computed and calculated.  
 In other words, different causal (parent-child) structures are obtained.
-Based on the causal relationship (parent-child relationship) based on the structure of this B matrix
-$`x \rightarrow y`$ relationship can be obtained. This gives us $`y=g^{-1}f(x, \mu)`$
-and $`h=g^{-1}f`$ is estimated by deep learning.
-In other words, the optimization is performed so that $`\|(y_{pred} - y_{obs})\|`$ is minimized, but $`\|g(y_{pred}) - y_{obs}\|`$ must also be minimized. 
-In addition, adjust the undetermined parameters so that the loss is minimized.
+Based on the causal relationship (parent-child relationship) based on the structure of this B matrix  
+$`x \rightarrow y`$   
+relationship can be obtained. This gives us  
+$`y=g^{-1}f(x, \mu)`$  
+and   
+$`h=g^{-1}f`$   
+is estimated by deep learning.
+In other words, the optimization is performed so that   
+$`\|(y_{pred} - y_{obs})\|`$   
+is minimized, but   
+$`\|g(y_{pred}) - y_{obs}\|`$   
+must also be minimized. 
+In addition, adjust the undetermined parameters so that the loss is minimized.  
 $` loss = max(w1 \,max(e_{i}), w2\,max(MI(e_{i},e_{j})))+\epsilon\,(w1 \,max(e_{i}), w2\,max(MI(e_{i},e_{j})))`$
 
 ## reference document
