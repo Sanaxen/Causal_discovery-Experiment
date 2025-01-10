@@ -161,8 +161,7 @@ $`x_{4} = {B_{41}\,x}_{1} + {B_{42}\,x}_{2}  + {B_{43}\,x}_{3}+ \epsilon_{4}`$
 $`\cdots `$  
 
 $`x^{\prime} \leftarrow x - (distribution\_rate* normal\_distribution\_random() + \mu(x)\_random()\,distribution\_rate)`$
-
-Based on this B matrix, we calculate  
+  
 Based on the causal relationship (parent-child relationship) based on the structure of this B matrix  
 $`x \rightarrow y`$   
 relationship can be obtained.   
