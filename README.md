@@ -177,7 +177,7 @@ $`u1\_param`$  is used for scale adjustment.
 
 $`y=g^{-1}f(x, \mu)`$  
 and   
-$`h=g^{-1}f`$   
+$`g(y) = f(x, \mu) `$   
 is estimated by deep learning.
 In other words, the optimization is performed so that   
 $`\|(y_{pred} - y_{obs})\|`$   
