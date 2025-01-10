@@ -129,7 +129,7 @@ Adding fluctuations to the input data changes the causal structure (B matrix) th
 In other words, different causal (parent-child) structures are obtained.
 
 In the case of ICA-LiNGAM, it is a linear model, so it is as follows.  
-$$\begin{pmatrix}
+$'\begin{pmatrix}
 x_{1} \\
 x_{2} \\
  \vdots \\
@@ -149,13 +149,13 @@ x_{n} \\
 \epsilon_{2} \\
  \vdots \\
 \epsilon_{n} \\
-\end{pmatrix}$$
+\end{pmatrix}'$
 
 
 $`x_{1} = \epsilon_{1}`$  
-$'x_{2} = {B_{21}\,x}_{1} + \epsilon_{2}`$  
-$'x_{3} = {B_{31}\,x}_{1} + {B_{32}\,x}_{1} + \epsilon_{3}`$  
-$'x_{4} = {B_{41}\,x}_{1} + {B_{42}\,x}_{1}  + {B_{43}\,x}_{1}+ \epsilon_{4}`$  
+$`x_{2} = {B_{21}\,x}_{1} + \epsilon_{2}`$  
+$`x_{3} = {B_{31}\,x}_{1} + {B_{32}\,x}_{1} + \epsilon_{3}`$  
+$`x_{4} = {B_{41}\,x}_{1} + {B_{42}\,x}_{1}  + {B_{43}\,x}_{1}+ \epsilon_{4}`$  
 $`\cdots `$  
 
 Based on this B matrix, we calculate  
