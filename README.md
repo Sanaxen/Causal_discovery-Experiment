@@ -34,14 +34,20 @@ reference https://proceedings.mlr.press/v177/uemura22a/uemura22a.pdf
 Solid and dashed lines are estimated edges and ground truths, respectively.
 
 - ICA-LiNGAM  
-<img src="./images/image4.png" width="45%">   
+<img src="./images/image4.png" width="40%"> <img src="./images/image11.png" width="34%">    
+   
 
-  The numbers mean the correlation coefficient in parentheses and the linear coefficient outside the parentheses.
+The numbers mean the correlation coefficient in parentheses and the linear coefficient outside the parentheses.  
+The green arrow line is the result of ICA-LiNGAM  
+
 - Experiment  
-<img src="./images/Digraph.png" width="45%">   
+
+<img src="./images/Digraph.png" width="35%"> <img src="./images/image10.png" width="35%">    
+    
 
 The values in parentheses indicate the correlation coefficient, the values outside the parentheses indicate the feature importance, and the percentage values indicate the confidence level.
-Feature Importance is a relative value when the maximum is 1.0.
+Feature Importance is a relative value when the maximum is 1.0.  
+The green arrow line is the result of the experiment  
 
 - Causal structure compared  
 <img src="./images/image7.png" width="40%">  
@@ -51,7 +57,11 @@ Solid and dashed lines are estimated edges and ground truths, respectively.
 
 
 - Experiment  
-<img src="./images/Digraph_2.png" width="40%">   
+<img src="./images/Digraph_2.png" width="40%">  <img src="./images/image9.png" width="45%">    
+The values in parentheses indicate the correlation coefficient, the values outside the parentheses indicate the feature importance, and the percentage values indicate the confidence level.
+Feature Importance is a relative value when the maximum is 1.0.  
+The green arrow line is the result of the experiment  
+      
 
 ---
 ## Probability of possible causality from each variable  
