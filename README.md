@@ -125,10 +125,10 @@ x_{2} \\
  \vdots \\
 x_{n} \\
 \end{pmatrix} = \begin{pmatrix}
-B_{11} & 0 & \cdots & B_{1n} \\
-B_{21} & B_{22} & \cdots & B_{2n} \\
+0 & 0 & \cdots & 0 \\
+B_{21} & 0 & \cdots & 0 \\
  \vdots & \vdots & \cdots & \vdots \\
-B_{n1} & B_{n2} & \cdots & B_{nn} \\
+B_{n1} & B_{n2} & \cdots & 0 \\
 \end{pmatrix}\begin{pmatrix}
 x_{1} \\
 x_{2} \\
