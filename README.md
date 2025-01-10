@@ -182,6 +182,9 @@ must also be minimized.
 In addition, adjust the undetermined parameters so that the loss is minimized.  
 $` loss = max(w1 \,max(e_{i}), w2\,max(MI(e_{i},e_{j})))+\epsilon\,(w1 \,max(e_{i}), w2\,max(MI(e_{i},e_{j})))`$
 
+## command line option
+Command_Line_Options.md  
+[command line option](https://github.com/Sanaxen/Causal_discovery-Experiment/blob/main/Command_Line_Options.md)
 
 ## reference document
 - https://www.ds.shiga-u.ac.jp/inga/
