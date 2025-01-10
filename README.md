@@ -160,11 +160,13 @@ $`x_{3} = {B_{31}\,x}_{1} + {B_{32}\,x}_{2} + \epsilon_{3}`$
 $`x_{4} = {B_{41}\,x}_{1} + {B_{42}\,x}_{2}  + {B_{43}\,x}_{3}+ \epsilon_{4}`$  
 $`\cdots `$  
 
+$`x^{\prime} \leftarrow x - (distribution\_rate* normal\_distribution\_random() + \mu(x)\_random()\,distribution\_rate)`$
+
 Based on this B matrix, we calculate  
 $`x_{1} = \epsilon_{1}`$  
-$`x_{2} = (g^{-1}f)_{1}(x_{1},\,\,\, \mu_{1})`$  
-$`x_{3} = (g^{-1}f)_{2}(x_{1}, x_{2},\,\,\,\mu_{1},\mu_{2})`$  
-$`x_{4} = (g^{-1}f)_{3}(x_{1}, x_{2}, x_{3},\,\,\,\mu_{1},\mu_{2},\mu_{3})`$  
+$`x_{2} = (g^{-1}f)_{1}(x_{1},\,\,\, \mu_{1}\,u1\_param)`$  
+$`x_{3} = (g^{-1}f)_{2}(x_{1}, x_{2},\,\,\,\mu_{1}\,u1\_param,\mu_{2}\,u1\_param)`$  
+$`x_{4} = (g^{-1}f)_{3}(x_{1}, x_{2}, x_{3},\,\,\,\mu_{1}\,u1\_param,\mu_{2}\,u1\_param,\mu_{3}\,u1\_param)`$  
 $`\cdots `$  
 
 Based on the causal relationship (parent-child relationship) based on the structure of this B matrix  
