@@ -129,7 +129,7 @@ Adding fluctuations to the input data changes the causal structure (B matrix) th
 In other words, different causal (parent-child) structures are obtained.
 
 In the case of ICA-LiNGAM, it is a linear model, so it is as follows.  
-$'\begin{pmatrix}
+$$'\begin{pmatrix}
 x_{1} \\
 x_{2} \\
  \vdots \\
@@ -149,7 +149,7 @@ x_{n} \\
 \epsilon_{2} \\
  \vdots \\
 \epsilon_{n} \\
-\end{pmatrix}'$
+\end{pmatrix}'$$
 
 
 $`x_{1} = \epsilon_{1}`$  
@@ -159,10 +159,10 @@ $`x_{4} = {B_{41}\,x}_{1} + {B_{42}\,x}_{1}  + {B_{43}\,x}_{1}+ \epsilon_{4}`$
 $`\cdots `$  
 
 Based on this B matrix, we calculate  
-$`x_{k_{1}} = (g^{-1}f_{1})(x_{i_{1}}, \mu_{1})`$  
-$`x_{k_{2}} = (g^{-1}f_{2})(x_{i_{1}}, x_{i_{2}},\mu_{1},\mu_{2})`$  
-$`x_{k_{3}} = (g^{-1}f_{3})(x_{i_{1}}, x_{i_{2}}, x_{i_{3}},\mu_{1},\mu_{2},\mu_{3})`$  
-$`x_{k_{4}} = (g^{-1}f_{4})(x_{i_{1}}, x_{i_{2}}, x_{i_{3}}, x_{i_{4}},\mu_{1},\mu_{2},\mu_{3},\mu_{4})`$  
+$`x_{k_{1}} = (g^{-1}f)_{1}(x_{i_{1}}, \mu_{1})`$  
+$`x_{k_{2}} = (g^{-1}f)_{2}(x_{i_{1}}, x_{i_{2}},\mu_{1},\mu_{2})`$  
+$`x_{k_{3}} = (g^{-1}f)_{3}(x_{i_{1}}, x_{i_{2}}, x_{i_{3}},\mu_{1},\mu_{2},\mu_{3})`$  
+$`x_{k_{4}} = (g^{-1}f)_{4}(x_{i_{1}}, x_{i_{2}}, x_{i_{3}}, x_{i_{4}},\mu_{1},\mu_{2},\mu_{3},\mu_{4})`$  
 $`\cdots `$  
 
 Based on the causal relationship (parent-child relationship) based on the structure of this B matrix  
