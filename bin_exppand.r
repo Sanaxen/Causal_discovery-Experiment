@@ -3,7 +3,7 @@ org_libpath <- .libPaths()
 curdir = getwd()
 
 
-install_libpath = paste(curdir, "/lib", sep="")
+install_libpath = paste(curdir, "/work/lib", sep="")
 
 .libPaths( c(install_libpath))
 
@@ -14,7 +14,7 @@ install.packages("archive", repos = "http://cran.us.r-project.org",dependencies=
 
 library(archive)
 
-setwd("../Causal_Search_Experiment")
+setwd("Causal_Search_Experiment")
 zip_file_path <- "./bin.7z"
 dest_dir <- "."
 archive_extract(zip_file_path, dir = dest_dir)

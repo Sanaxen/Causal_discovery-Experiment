@@ -1,4 +1,3 @@
 call init.bat
 
-cd work
-"%RPATH%\R" CMD BATCH --slave --vanilla bin_exppand.r
+"%RPATH%\Rscript.exe" bin_exppand.r
