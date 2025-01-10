@@ -80,18 +80,6 @@ The green arrow line is the result of the experiment
 
 ---
 
-## requirements
-- [R-4.2.3 >](https://www.r-project.org/)
-- [gnuplot](http://www.gnuplot.info/)
-- [Graphviz](http://www.graphviz.org/)
-- [Rtools](https://cran.r-project.org/bin/windows/Rtools/history.html)  
-※Rtools must match R version  
-
-## Modifications required to run in your environment  
-Please modify the init.bat according to the installation location and version of R.  
-Describe the bus where **gnuplot** is installed in ``Causal_Search_Experiment/bin/gnuplot_path.txt``  
-Describe the bus where **graphviz** is installed in ``Causal_Search_Experiment/bin/graphviz_path.txt``
-
 
 ---
 ## Note  
@@ -192,6 +180,7 @@ Command_Line_Options.md
 [command line option](https://github.com/Sanaxen/Causal_discovery-Experiment/blob/main/Command_Line_Options.md)
 -->
 
+
 # Command Line Options
 
 | Command Line Option | Description | Argument | Number of Arguments | Details | Default |
@@ -251,6 +240,33 @@ Command_Line_Options.md
 |  | --@ | Response file name | 0-1 | Specify a file describing command-line options (first character in the file must be blank) |  |
 |||||||
 
+---
+## requirements
+- [pytorch(libtorch) > 2.5.0](https://pytorch.org/)
+- [R-4.2.3 >](https://www.r-project.org/)
+- [gnuplot](http://www.gnuplot.info/)
+- [Graphviz](http://www.graphviz.org/)
+- [Rtools](https://cran.r-project.org/bin/windows/Rtools/history.html)  
+※Rtools must match R version  
+
+## Modifications required to run in your environment  
+Please modify the init.bat according to the installation location and version of R.  
+Describe the bus where **gnuplot** is installed in ``Causal_Search_Experiment/bin/gnuplot_path.txt``  
+Describe the bus where **graphviz** is installed in ``Causal_Search_Experiment/bin/graphviz_path.txt``
+
+
+## build  
+When installed, the pre-built binary files are also automatically placed in bin.  
+To rebuild it yourself, simply rebuild the following and overwrite bin with the generated binaries  
+
+[Statistical_analysis](https://github.com/Sanaxen/Statistical_analysis)  
+https://github.com/Sanaxen/Statistical_analysis/tree/master/example/LiNGAM  
+build :**Release_pytorch** binary:**LiNGAM_cuda.exe**
+
+[cpp_torch](https://github.com/Sanaxen/cpp_torch)  
+buld : project **rnn6** binary:**rnn6.dll**
+
+---
 ## reference document
 - https://www.ds.shiga-u.ac.jp/inga/
 - https://www.jst.go.jp/kisoken/aip/result/event/jst-riken_sympo2021/pdf/shimizu.pdf
