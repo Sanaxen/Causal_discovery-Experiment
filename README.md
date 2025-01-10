@@ -9,8 +9,9 @@ This is not practical at all because the computation time exceeds the acceptable
   
 We are experimenting with a similar model of post-nonlinear model.  
  $` y=g^{-1} (f(x, \mu) + \epsilon ) `$  
-$` \mu `$ is a generalized Gaussian distribution $`\,`$
- $` \mu(x) = \frac{\beta^{1/2}}{2\Gamma(1+1/\rho)} exp(-\beta^{1/2}|x-\tilde{x}|^{\rho})`$
+$` \mu `$ is a generalized Gaussian distribution $`\,`$  
+ $` \mu(x) = \frac{\beta^{1/2}}{2\Gamma(1+1/\rho)} exp(-\beta^{1/2}|x-\tilde{x}|^{\rho})`$  
+<img src="./images/fig1.png"  width="30%">  
 
 $`\beta`$ and $`\rho`$ are parameters to be determined and estimated by optimization.  
 
@@ -78,6 +79,21 @@ The green arrow line is the result of the experiment
 <img src="./images/Digraph_0.png" width="50%">  
 
 ---
+
+## requirements
+- [R-4.2.3 >](https://www.r-project.org/)
+- [gnuplot](http://www.gnuplot.info/)
+- [Graphviz](http://www.graphviz.org/)
+- [Rtools](https://cran.r-project.org/bin/windows/Rtools/history.html)  
+※Rtools must match R version  
+
+## Modifications required to run in your environment  
+Please modify the init.bat according to the installation location and version of R.  
+Describe the bus where **gnuplot** is installed in ``Causal_Search_Experiment/bin/gnuplot_path.txt``  
+Describe the bus where **graphviz** is installed in ``Causal_Search_Experiment/bin/graphviz_path.txt``
+
+
+---
 ## Note  
 This is still an experimental implementation.
 Therefore, the optimization is close to a parameter brute force approach,   
@@ -106,10 +122,49 @@ The causal structure is correct when the LOSS drops the most, even though it may
 - 4   
 <img src="./images/Digraph.png" width="30%">  
 
+---
 Roughly speaking, ICA-LiNGAM is used. However, LiNGAM is used to obtain the B matrix, so it does not have to be LiNGAM.  
 The B matrix is used as a causal (parent-child) structure and ignored for their linear relationship.  
 Adding fluctuations to the input data changes the causal structure (B matrix) that is computed and calculated.  
 In other words, different causal (parent-child) structures are obtained.
+
+In the case of ICA-LiNGAM, it is a linear model, so it is as follows.  
+$$\begin{pmatrix}
+x_{1} \\
+x_{2} \\
+ \vdots \\
+x_{n} \\
+\end{pmatrix} = \begin{pmatrix}
+B_{11} & 0 & \cdots & B_{1n} \\
+B_{21} & B_{22} & \cdots & B_{2n} \\
+ \vdots & \vdots & \cdots & \vdots \\
+B_{n1} & B_{n2} & \cdots & B_{nn} \\
+\end{pmatrix}\begin{pmatrix}
+x_{1} \\
+x_{2} \\
+ \vdots \\
+x_{n} \\
+\end{pmatrix} + \begin{pmatrix}
+\epsilon_{1} \\
+\epsilon_{2} \\
+ \vdots \\
+\epsilon_{n} \\
+\end{pmatrix}$$
+
+
+$`x_{1} = \epsilon_{1}`$  
+$'x_{2} = {B_{21}\,x}_{1} + \epsilon_{2}`$  
+$'x_{3} = {B_{31}\,x}_{1} + {B_{32}\,x}_{1} + \epsilon_{3}`$  
+$'x_{4} = {B_{41}\,x}_{1} + {B_{42}\,x}_{1}  + {B_{43}\,x}_{1}+ \epsilon_{4}`$  
+$`\cdots `$  
+
+Based on this B matrix, we calculate  
+$`x_{k_{1}} = (g^{-1}f_{1})(x_{i_{1}}, \mu_{1})`$  
+$`x_{k_{2}} = (g^{-1}f_{2})(x_{i_{1}}, x_{i_{2}},\mu_{1},\mu_{2})`$  
+$`x_{k_{3}} = (g^{-1}f_{3})(x_{i_{1}}, x_{i_{2}}, x_{i_{3}},\mu_{1},\mu_{2},\mu_{3})`$  
+$`x_{k_{4}} = (g^{-1}f_{4})(x_{i_{1}}, x_{i_{2}}, x_{i_{3}}, x_{i_{4}},\mu_{1},\mu_{2},\mu_{3},\mu_{4})`$  
+$`\cdots `$  
+
 Based on the causal relationship (parent-child relationship) based on the structure of this B matrix  
 $`x \rightarrow y`$   
 relationship can be obtained. This gives us  
@@ -124,19 +179,6 @@ $`\|g(y_{pred}) - y_{obs}\|`$
 must also be minimized. 
 In addition, adjust the undetermined parameters so that the loss is minimized.  
 $` loss = max(w1 \,max(e_{i}), w2\,max(MI(e_{i},e_{j})))+\epsilon\,(w1 \,max(e_{i}), w2\,max(MI(e_{i},e_{j})))`$
-
-
-## requirements
-- [R-4.2.3 >](https://www.r-project.org/)
-- [gnuplot](http://www.gnuplot.info/)
-- [Graphviz](http://www.graphviz.org/)
-- [Rtools](https://cran.r-project.org/bin/windows/Rtools/history.html)  
-※Rtools must match R version  
-
-## Modifications required to run in your environment  
-Please modify the init.bat according to the installation location and version of R.  
-Describe the bus where **gnuplot** is installed in ``Causal_Search_Experiment/bin/gnuplot_path.txt``  
-Describe the bus where **graphviz** is installed in ``Causal_Search_Experiment/bin/graphviz_path.txt``
 
 
 ## reference document
