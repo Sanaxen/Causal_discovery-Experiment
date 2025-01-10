@@ -162,6 +162,7 @@ $`\cdots `$
 
 $`u1\_param`$  is used for scale adjustment.   
 
+<!-- 
 $`y=g^{-1}f(x, \mu)`$  
 and   
 $`g(y) = f(x, \mu) `$   
@@ -172,7 +173,35 @@ is minimized, but
 $`\|g(y_{pred}) - y_{obs}\|`$   
 must also be minimized. 
 In addition, adjust the undetermined parameters so that the loss is minimized.  
-$` loss = max(w1 \,max(e_{i}), w2\,max(MI(e_{i},e_{j})))+\epsilon\,(w1 \,max(e_{i}), w2\,max(MI(e_{i},e_{j})))`$
+$` loss = max(w1 \,max(e_{i}), w2\,max(MI(e_{i},e_{j})))+\epsilon\,(w1 \,max(e_{i}), w2\,max(MI(e_{i},e_{j})))`$  
+-->  
+
+$`f`$ and $`g`$ are trained as follows using deep learning.  
+I understand this is pretty redundant.  
+$`y_{pred} = F(x)`$
+Train output to be the same value as y  
+$`|y - y_{pred}| \rightarrow ε`$
+
+$`output2 = G(y)`$  
+Train output2 to be the same value as $`y_{pred}`$  
+$`|output2 - y_{pred}| \rightarrow 0`$  
+
+$`output3 = H(y_{pred})`$  
+Train output3 to be the same value as $`y_{pred}`$ at the same time  
+$`|y_{pred} - output3| \rightarrow 0`$  
+
+By training F, G, and H at the same time  
+$`F(x) = f(x)\rightarrow f=F`$,  
+$`F(x) = G(y)\rightarrow g=G`$,  
+$`H( G(y)) = y \rightarrow H=G^{-1}\rightarrow g^{-1} = G^{-1}`$    
+can be obtained.
+
+In the above, we have
+$`y = g^{-1}(f(x)+ε)`$
+can be obtained.  
+
+Further, the parameters are updated so that LOSS is minimized.  
+$` loss = max(w1 \,max(e_{i}), w2\,max(MI(e_{i},e_{j})))+\epsilon\,(w1 \,max(e_{i}), w2\,max(MI(e_{i},e_{j})))`$  
 
 <!--
 ## command line option
