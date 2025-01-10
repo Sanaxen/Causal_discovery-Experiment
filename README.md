@@ -173,6 +173,7 @@ $`x_{3} = (g^{-1}f)_{2}(x_{1}, x_{2},\,\,\,\mu_{1}\,u1\_param,\mu_{2}\,u1\_param
 $`x_{4} = (g^{-1}f)_{3}(x_{1}, x_{2}, x_{3},\,\,\,\mu_{1}\,u1\_param,\mu_{2}\,u1\_param,\mu_{3}\,u1\_param)`$  
 $`\cdots `$  
 
+＄`u1_param`$  is used for scale adjustment.   
 
 $`y=g^{-1}f(x, \mu)`$  
 and   
