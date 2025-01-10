@@ -28,30 +28,30 @@ In other words, $`\mu`$ is obtained so that both the residuals and
 ---
 ## Experiment
 - Causal structure compared  
-<img src="./images/image5.png"  width="50%">  
+<img src="./images/image5.png"  width="40%">  
 reference https://proceedings.mlr.press/v177/uemura22a/uemura22a.pdf   
 
 Solid and dashed lines are estimated edges and ground truths, respectively.
 
 - ICA-LiNGAM  
-<img src="./images/image4.png" width="65%">   
+<img src="./images/image4.png" width="45%">   
 
   The numbers mean the correlation coefficient in parentheses and the linear coefficient outside the parentheses.
 - Experiment  
-<img src="./images/Digraph.png" width="65%">   
+<img src="./images/Digraph.png" width="45%">   
 
 The values in parentheses indicate the correlation coefficient, the values outside the parentheses indicate the feature importance, and the percentage values indicate the confidence level.
 Feature Importance is a relative value when the maximum is 1.0.
 
 - Causal structure compared  
-<img src="./images/image7.png" width="50%">  
+<img src="./images/image7.png" width="40%">  
 reference https://proceedings.mlr.press/v177/uemura22a/uemura22a.pdf   
 
 Solid and dashed lines are estimated edges and ground truths, respectively.  
 
 
 - Experiment  
-<img src="./images/Digraph_2.png" width="50%">   
+<img src="./images/Digraph_2.png" width="40%">   
 
 ---
 ## Probability of possible causality from each variable  
@@ -74,7 +74,7 @@ Therefore, the optimization is close to a parameter brute force approach,
 where randomly generated parameters are set and computed, and the optimal solution is updated as the LOSS becomes smaller.   
 Therefore, it is very difficult to determine at what point to stop the calculation.  
 <img src="./images/Digraph_2.png" width="20%">
-<img src="./images/loss.png" width="50%">  
+<img src="./images/loss.png" width="53%">  
 In this example, it took 59 iterations to obtain the correct result, which I believe is very rare.
 This is a very fortunate case.
 In other experiments, it has often occurred that 20,000 calculations are required.  
@@ -114,6 +114,20 @@ $`\|g(y_{pred}) - y_{obs}\|`$
 must also be minimized. 
 In addition, adjust the undetermined parameters so that the loss is minimized.  
 $` loss = max(w1 \,max(e_{i}), w2\,max(MI(e_{i},e_{j})))+\epsilon\,(w1 \,max(e_{i}), w2\,max(MI(e_{i},e_{j})))`$
+
+
+## requirements
+- [R-4.2.3 >](https://www.r-project.org/)
+- [gnuplot](http://www.gnuplot.info/)
+- [Graphviz](http://www.graphviz.org/)
+- [Rtools](https://cran.r-project.org/bin/windows/Rtools/history.html)  
+※Rtools must match R version  
+
+## Modifications required to run in your environment  
+Please modify the init.bat according to the installation location and version of R.  
+Describe the bus where **gnuplot** is installed in ``Causal_Search_Experiment/bin/gnuplot_path.txt``  
+Describe the bus where **graphviz** is installed in ``Causal_Search_Experiment/bin/graphviz_path.txt``
+
 
 ## reference document
 - https://www.ds.shiga-u.ac.jp/inga/

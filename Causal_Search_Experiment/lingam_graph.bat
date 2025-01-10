@@ -30,6 +30,10 @@ set R_LIBS_USER=%R_INSTALL_PATH%\library
 set r=%R_INSTALL_PATH%\bin
 
 cd ..\work
+set R_LIBS_USER_work=%CD%\lib
+
+echo %R_LIBS_USER_work%
+
 type comandline_args > comandline_args_tmp_
 :echo  --R_cmd_path "%R_INSTALL_PATH%\bin\R.exe" >> comandline_args_tmp_
 :echo  --use_bootstrap 1 >> comandline_args_tmp_
@@ -53,6 +57,8 @@ copy Digraph.png ..\Causal_Search_Experiment /v /y
 :goto end
 
 call ..\init.bat
+set R_LIBS_USER=%R_LIBS_USER_work%
+
 %r%\R.exe CMD BATCH --slave --vanilla  b_probability_barplot.r
 %r%\R.exe CMD BATCH --slave --vanilla  Causal_effect.r
 %r%\R.exe CMD BATCH --slave --vanilla  fit.r

@@ -3,8 +3,7 @@ bind "Close" "if (GPVAL_TERM eq \'wxt\') bind \'Close\' \'\'; exit gnuplot; else
 if (exist("n")==0 || n<0) n=0 #•Ï”‚Ì‰Šú‰»
 
 if (n==0 ) set terminal png
-if (n==0 ) set output '../Causal_Search_Experiment/loss.png'
-cd '../Work'
+if (n==0 ) set output 'loss.png'
 
 set encoding utf8
 set border lc rgb "black"
@@ -17,14 +16,14 @@ set datafile separator ","
 
 # smooth [unique, csplines, acsplines, bezier, sbezier]
 
-plot 'lingam_loss.dat' using 1   t "residual error"  with lines linewidth 1 linecolor rgbcolor "#F5A9A9" dt 1 \
-, 'lingam_loss.dat' using 2  t "residual independence" with lines linewidth 1 linecolor rgbcolor "#A9BCF5" dt 1 \
-, 'lingam_loss.dat' using 3  t "loss" with lines linewidth 1 linecolor rgbcolor "#3cb371" dt 1 \
-, 'lingam_loss.dat' using 4  t "vest" with lines linewidth 1 linecolor rgbcolor "#b0c4de" dt 1 \
-, 'lingam_loss.dat' using 1  smooth bezier t "Residual"  with lines linewidth 2 linecolor rgbcolor "#f39800" \
-, 'lingam_loss.dat' using 2  smooth bezier t "independence" with lines linewidth 2 linecolor rgbcolor "#0068b7" \
-, 'lingam_loss.dat' using 3  smooth bezier t "Loss" with lines linewidth 2 linecolor rgbcolor "#006400" \
-, 'lingam_loss.dat' using 4  smooth bezier t "Vest" with lines linewidth 2 linecolor rgbcolor "#0000cd" \
+plot '../work/lingam_loss.dat' using 1   t "residual error"  with lines linewidth 1 linecolor rgbcolor "#F5A9A9" dt 1 \
+, '../work/lingam_loss.dat' using 2  t "residual independence" with lines linewidth 1 linecolor rgbcolor "#A9BCF5" dt 1 \
+, '../work/lingam_loss.dat' using 3  t "loss" with lines linewidth 1 linecolor rgbcolor "#3cb371" dt 1 \
+, '../work/lingam_loss.dat' using 4  t "vest" with lines linewidth 1 linecolor rgbcolor "#b0c4de" dt 1 \
+, '../work/lingam_loss.dat' using 1  smooth bezier t "Residual"  with lines linewidth 2 linecolor rgbcolor "#f39800" \
+, '../work/lingam_loss.dat' using 2  smooth bezier t "independence" with lines linewidth 2 linecolor rgbcolor "#0068b7" \
+, '../work/lingam_loss.dat' using 3  smooth bezier t "Loss" with lines linewidth 2 linecolor rgbcolor "#006400" \
+, '../work/lingam_loss.dat' using 4  smooth bezier t "Vest" with lines linewidth 2 linecolor rgbcolor "#0000cd" \
 
 
 set terminal windows

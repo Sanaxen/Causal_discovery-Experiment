@@ -1,5 +1,5 @@
-set bin=..\bin\gpu_version\LiNGAM_cuda.exe
-:set bin=..\bin\LiNGAM.exe
+set cur=%~dp0
+set bin=%cur%\bin\LiNGAM_cuda.exe
 
 del ..\work\causal_multi_histgram.png
 del ..\work\Digraph.png
@@ -88,6 +88,6 @@ copy scatter2.png scatter2_%1.png /v /y
 
 copy pattern_count.txt pattern_count_%1.txt /v /y
 
-call line.bat Digraph_%1.png
+:call line.bat Digraph_%1.png
 :pause
 
