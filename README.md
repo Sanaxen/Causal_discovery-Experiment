@@ -231,7 +231,7 @@ Command_Line_Options.md
 |Experiment unmeasured confounder  | --temperature_alp | 1 > Value > 0 | 0-1 | Coefficient for probabilistic transitions in optimization | 0.95 |
 |Experiment unmeasured confounder  | --rho | Value > 0 | 0-1 | Distribution parameter σ range (12 times the specified value is set as the mean of μ distribution) | 3 |
 |Experiment unmeasured confounder  | --bins | Value > 0 | 0-1 | Number of bins for mutual information integration | 30 |
-|Experiment unmeasured confounder   | --early_stopping | Number | ≥ 1 | Stop calculations when optimization loss does not change for the specified iterations |  |
+|Experiment unmeasured confounder   | --early_stopping | Number | 1 | Stop calculations when optimization loss does not change for the specified iterations |  |
 |Experiment unmeasured confounder  | --use_intercept | 0 or 1 | 0-1 | Include intercept term in regression results if set to 1 | 0 |
 |Experiment unmeasured confounder  | --loss_data_load | 0 or 1 | 0-1 | Load loss data from model generation when loading a model | 0 |
 |Experiment unmeasured confounder & nonlinear| --nonlinear | 0 or 1 | 0-1 | Applying nonlinear models | 0 |
@@ -239,16 +239,16 @@ Command_Line_Options.md
 |Experiment unmeasured confounder & nonlinear | --activation_fnc | activation fucntion name|  SELU,tanh,leakyrelu,relu,mish |Specify activation function | tanh |
 |Experiment unmeasured confounder & nonlinear | --use_hsic |  0 or 1 |  0-1 |Should HSIC be used to calculate independence? | 0 |
 |Experiment unmeasured confounder & nonlinear| --use_pnl | 0 or 1 | 0-1 | Use PNL for nonlinear models? | 0 |
-|Experiment unmeasured confounder & nonlinear| --learning_rate | Number | > 0 | learning_rate| 0.001 |
-|Experiment unmeasured confounder & nonlinear| --n_unit | Number | > 0 | Number of units for fully-connected layer|  |
-|Experiment unmeasured confounder & nonlinear| --n_epoch | Number | > 0 | Number of epochs| 20 |
+|Experiment unmeasured confounder & nonlinear| --learning_rate | Number | 0-1 | learning_rate| 0.001 |
+|Experiment unmeasured confounder & nonlinear| --n_unit | Number | 1 | Number of units for fully-connected layer|  |
+|Experiment unmeasured confounder & nonlinear| --n_epoch | Number | 1 | Number of epochs| 20 |
 |Experiment  unmeasured confounder & nonlinear| --optimizer | optimizer name | rmsprop,adam,adagrad,sgd | optimizer| rmsprop |
-|Experiment  unmeasured confounder & nonlinear| --minbatch | Number | > 0 | minbatch size|  |
-|Experiment unmeasured confounder & nonlinear| --dropout_rate | Number | > 0 | dropout rate| 0.01 |
-|Experiment unmeasured confounder & nonlinear| --confounding_factors_upper2 | Number | > 0 | | 0.05 |
-|Experiment unmeasured confounder & nonlinear| --u1_param | Number | > 0 | | 0.001 |
+|Experiment  unmeasured confounder & nonlinear| --minbatch | Number | 1 | minbatch size|  |
+|Experiment unmeasured confounder & nonlinear| --dropout_rate | Number | 0-1 | dropout rate| 0.01 |
+|Experiment unmeasured confounder & nonlinear| --confounding_factors_upper2 | Number | 0-1 | | 0.05 |
+|Experiment unmeasured confounder & nonlinear| --u1_param | Number | 0-1 | | 0.001 |
 |Experiment unmeasured confounder & nonlinear| --random_pattern | 0 or 1 | 0-1 |Randomly generate substitution patterns for the B matrix? | 0 |
-|Experiment unmeasured confounder & nonlinear| --_Causal_Search_Experiment | 0 or 1 | 0-1 | |  |
+|Experiment unmeasured confounder & nonlinear| --_Causal_Search_Experiment | 0 or 1 | 0-1 | | 0 |
 |  | --@ | Response file name | 0-1 | Specify a file describing command-line options (first character in the file must be blank) |  |
 |||||||
 
