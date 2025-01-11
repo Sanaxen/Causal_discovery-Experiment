@@ -272,7 +272,7 @@ Command_Line_Options.md
 ---
 ## requirements
 - [pytorch(libtorch) > 2.5.0](https://pytorch.org/)
-- [R-4.2.3 >](https://www.r-project.org/)
+- [ >= R-4.2.3](https://www.r-project.org/)
 - [gnuplot](http://www.gnuplot.info/)
 - [Graphviz](http://www.graphviz.org/)
 - [Rtools](https://cran.r-project.org/bin/windows/Rtools/history.html)  
