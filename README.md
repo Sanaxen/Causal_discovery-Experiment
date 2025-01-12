@@ -307,6 +307,8 @@ https://www.fmrib.ox.ac.uk/datasets/netsim/index.html
 (Smith et al., 2011). 
 used sim1 and sim2 datasets with 5 and 10 variables, 
 
+- <img src="./images/image12.png" width="25%">   
+
 - **LiNGAM_latest3.csv**  
 <img src="./images/LiNGAM_latest3.png" width="60%">  
 
