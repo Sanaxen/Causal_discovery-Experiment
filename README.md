@@ -309,18 +309,24 @@ used sim1 and sim2 datasets with 5 and 10 variables,
 
 - **LiNGAM_latest3.csv**  
 <img src="./images/LiNGAM_latest3.png">  
+
 - **nonlinear_LiNGAM_latest3a.csv**  
 <img src="./images/nonlinear_LiNGAM_latest3a.png">  
+
 - **nonlinear_LiNGAM_latest3b.csv**  
 <img src="./images/nonlinear_LiNGAM_latest3b.png">  
+
 - **nonlinear_LiNGAM_latest3c.csv**  
 <img src="./images/nonlinear_LiNGAM_latest3c.png">  
+
 - **nonlinear.csv**  
 <img src="./images/nonlinear.png">  
+
 - **nonlinear2.csv**  
 <img src="./images/Nonlinear2.png">  
----
-## reference document
+---  
+
+## reference document  
 - https://www.ds.shiga-u.ac.jp/inga/
 - https://www.jst.go.jp/kisoken/aip/result/event/jst-riken_sympo2021/pdf/shimizu.pdf
 - https://www.socialpsychology.jp/seminar/pdf/2016SS_SShimizu.pdf
