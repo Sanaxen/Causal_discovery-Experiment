@@ -240,13 +240,17 @@ Command_Line_Options.md
 |  | --normalize_type | 0, 1, or 2 | 0-1 | Normalize (1), standardize (2), or keep data as is (0) | 0 |
 |  | --min_delete_srt | Number | 0-1 | Remove variables with causal effects smaller than the specified number of top variables | 0 |
 |  | --use_adaptive_lasso | 0 or 1 | 0-1 | Use adaptive LASSO for variable selection in LASSO | 1 |
+|  | --R_cmd_path |R path |Optional |  "R path" CMD BATCH --slave --vanilla  script.r |  |
+|  | --layout | graphviz layout option |  dot,circo,osage,sfdp,twopi | dot |
+|Experiment  | --independent_variable_skip | 0 or 1  |  0-1 | 0 |
+|Experiment  | --unique_check_rate | 0 or 1  |  0-1 | 0 |
 |||||||
 |Experiment  unmeasured confounder  | --confounding_factors | 0 or 1 | 0-1 | Set to 1 for latent common variable calculations | 0 |
 |Experiment unmeasured confounder  | --mutual_information_cut | Value | 0-1 | Cut edges using mutual information threshold | 0 |
 |Experiment unmeasured confounder  | --mutual_information_values | 0 or 1 | 0-1 | Set to 1 to output mutual information values between variables in the graph | 0 |
 |Experiment unmeasured confounder  | --distribution_rate | Value > 0 | 0-1 | Multiply this value to generate distribution for μ | 1 |
 |Experiment unmeasured confounder  | --temperature_alp | 1 > Value > 0 | 0-1 | Coefficient for probabilistic transitions in optimization | 0.95 |
-|Experiment unmeasured confounder  | --rho | Value > 0 | 0-1 | Distribution parameter σ range (12 times the specified value is set as the mean of μ distribution) | 3 |
+|Experiment unmeasured confounder  | --rho | Value > 0 | 0-1 | Distribution parameter $`rho`$ range (12 times the specified value is set as the mean of μ distribution) | 3 |
 |Experiment unmeasured confounder  | --bins | Value > 0 | 0-1 | Number of bins for mutual information integration | 30 |
 |Experiment unmeasured confounder   | --early_stopping | Number | 1 | Stop calculations when optimization loss does not change for the specified iterations |  |
 |Experiment unmeasured confounder  | --use_intercept | 0 or 1 | 0-1 | Include intercept term in regression results if set to 1 | 0 |
