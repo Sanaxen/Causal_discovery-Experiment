@@ -1,5 +1,5 @@
-# Causal_discovery-Experiment
-
+# Causal_discovery-Experiment  
+<img src="./images/top.png">  
 The idea is to use deep learning to directly estimate g and f in the post-nonlinear model in an attempt to perform nonlinear causal search. However, we impose a constraint to maximize the independence between residuals.  
 The calculation assumes the existence of an unobserved common cause $`\mu`$.
 This is not practical at all because the computation time exceeds the acceptable limit.
