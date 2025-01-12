@@ -296,6 +296,23 @@ build :**Release_pytorch** binary:**LiNGAM_cuda.exe**
 buld : project **rnn6** binary:**rnn6.dll**
 
 ---
+## dataset
+- **fMRI_sim1.csv , fMRI_sim2.csv**  
+fMRI simulation data 
+https://www.fmrib.ox.ac.uk/datasets/netsim/index.html
+(Smith et al., 2011). 
+used sim1 and sim2 datasets with 5 and 10 variables, 
+
+- **LiNGAM_latest3.csv**  
+<img src="./images/LiNGAM_latest3.png">  
+- **nonlinear_LiNGAM_latest3a.csv**  
+<img src="./images/nonlinear_LiNGAM_latest3a.png">  
+- **nonlinear_LiNGAM_latest3b.csv**  
+<img src="./images/nonlinear_LiNGAM_latest3b.png">  
+- **nonlinear_LiNGAM_latest3c.csv**  
+<img src="./images/nonlinear_LiNGAM_latest3c.png">  
+
+---
 ## reference document
 - https://www.ds.shiga-u.ac.jp/inga/
 - https://www.jst.go.jp/kisoken/aip/result/event/jst-riken_sympo2021/pdf/shimizu.pdf
