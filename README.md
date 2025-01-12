@@ -308,22 +308,22 @@ https://www.fmrib.ox.ac.uk/datasets/netsim/index.html
 used sim1 and sim2 datasets with 5 and 10 variables, 
 
 - **LiNGAM_latest3.csv**  
-<img src="./images/LiNGAM_latest3.png">  
+<img src="./images/LiNGAM_latest3.png" width="60%">  
 
 - **nonlinear_LiNGAM_latest3a.csv**  
-<img src="./images/nonlinear_LiNGAM_latest3a.png">  
+<img src="./images/nonlinear_LiNGAM_latest3a.png" width="60%">  
 
 - **nonlinear_LiNGAM_latest3b.csv**  
-<img src="./images/nonlinear_LiNGAM_latest3b.png">  
+<img src="./images/nonlinear_LiNGAM_latest3b.png" width="60%">  
 
 - **nonlinear_LiNGAM_latest3c.csv**  
-<img src="./images/nonlinear_LiNGAM_latest3c.png">  
+<img src="./images/nonlinear_LiNGAM_latest3c.png" width="60%">  
 
 - **nonlinear.csv**  
-<img src="./images/nonlinear.png">  
+<img src="./images/nonlinear.png" width="60%">  
 
 - **nonlinear2.csv**  
-<img src="./images/Nonlinear2.png">  
+<img src="./images/Nonlinear2.png" width="60%">  
 ---  
 
 ## reference document  
