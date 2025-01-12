@@ -311,7 +311,10 @@ used sim1 and sim2 datasets with 5 and 10 variables,
 <img src="./images/nonlinear_LiNGAM_latest3b.png">  
 - **nonlinear_LiNGAM_latest3c.csv**  
 <img src="./images/nonlinear_LiNGAM_latest3c.png">  
-
+- **nonlinear.csv**  
+<img src="./images/nonlinear.png">  
+- **nonlinear2.csv**  
+<img src="./images/nonlinear2.png">  
 ---
 ## reference document
 - https://www.ds.shiga-u.ac.jp/inga/
