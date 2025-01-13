@@ -215,22 +215,24 @@ https://www.fmrib.ox.ac.uk/datasets/netsim/index.html
 - fMRI_sim1  
 <img src="./images/image14.png" width="20%">  
 - fMRI_sim2  
-<img src="./images/image15.png" width="20%">
+<img src="./images/image15.png" width="20%">  
+
+
 
 - <img src="./images/image12.png" width="25%">   
 
-- **LiNGAM_latest3.csv**  
+    - **LiNGAM_latest3.csv**  
 <img src="./images/LiNGAM_latest3.png" width="60%">  
 
-- **nonlinear_LiNGAM_latest3a.csv**  
+    - **nonlinear_LiNGAM_latest3a.csv**  
 <img src="./images/nonlinear_LiNGAM_latest3a.png" width="60%">  
 <img src="./images/image16.png" width="20%">  
 
-- **nonlinear_LiNGAM_latest3b.csv**  
+    - **nonlinear_LiNGAM_latest3b.csv**  
 <img src="./images/nonlinear_LiNGAM_latest3b.png" width="60%">  
 <img src="./images/image17.png" width="20%">  
 
-- **nonlinear_LiNGAM_latest3c.csv**  
+    - **nonlinear_LiNGAM_latest3c.csv**  
 <img src="./images/nonlinear_LiNGAM_latest3c.png" width="60%">  
 <img src="./images/image18.png" width="20%">  
 
