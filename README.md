@@ -56,6 +56,8 @@ reference https://proceedings.mlr.press/v177/uemura22a/uemura22a.pdf
 
 Solid and dashed lines are estimated edges and ground truths, respectively.  
 
+- ICA-LiNGAM  
+<img src="./images/image13.png" width=120>  
 
 - Experiment  
 <img src="./images/Digraph_2.png" width="40%">  <img src="./images/image9.png" width="45%">    
@@ -203,6 +205,100 @@ can be obtained.
 Further, the parameters are updated so that LOSS is minimized.  
 $` loss = max(w1 \,max(e_{i}), w2\,max(MI(e_{i},e_{j})))+\epsilon\,(w1 \,max(e_{i}), w2\,max(MI(e_{i},e_{j})))`$  
 
+---
+
+## dataset
+- **fMRI_sim1.csv , fMRI_sim2.csv**  
+fMRI simulation data 
+https://www.fmrib.ox.ac.uk/datasets/netsim/index.html
+(Smith et al., 2011). 
+- fMRI_sim1  
+<img src="./images/image14.png" width="20%">  
+- fMRI_sim2  
+<img src="./images/image15.png" width="20%">
+
+- <img src="./images/image12.png" width="25%">   
+
+- **LiNGAM_latest3.csv**  
+<img src="./images/LiNGAM_latest3.png" width="60%">  
+
+- **nonlinear_LiNGAM_latest3a.csv**  
+<img src="./images/nonlinear_LiNGAM_latest3a.png" width="60%">  
+<img src="./images/image16.png" width="20%">  
+
+- **nonlinear_LiNGAM_latest3b.csv**  
+<img src="./images/nonlinear_LiNGAM_latest3b.png" width="60%">  
+<img src="./images/image17.png" width="20%">  
+
+- **nonlinear_LiNGAM_latest3c.csv**  
+<img src="./images/nonlinear_LiNGAM_latest3c.png" width="60%">  
+<img src="./images/image18.png" width="20%">  
+
+- **nonlinear.csv**  
+<img src="./images/nonlinear.png" width="60%">  
+
+- **nonlinear2.csv**  
+<img src="./images/Nonlinear2.png" width="60%">  
+[Nonlinear causal discovery with additive noise models](https://proceedings.neurips.cc/paper_files/paper/2008/file/f7664060cc52bc6f3d620bcedc94a4b6-Paper.pdf)
+
+---
+
+## method ICA-LiNGAM  
+| data |  Direction reversal|Direction missing|Wasted Edge|  
+|---------------------|-------------|----------| ---------|
+|fMRI_sim1| 0|0|0|
+|fMRI_sim2|2|0|2|
+|LiNGAM_latest3|0|2|0|
+|nonlinear_LiNGAM_latest3a|0|3|0|
+|nonlinear_LiNGAM_latest3b|1|2|1|
+|nonlinear_LiNGAM_latest3c|1|0|0|
+|nonlinear|1|0|1|
+|nonlinear2|0|3|0|
+
+---
+## Experiment  
+| data |  Direction reversal|Direction missing|Wasted Edge|   
+|---------------------|-------------|----------|  ---------|
+|fMRI_sim1| 0|0|0|
+|fMRI_sim2|0|0|0|
+|LiNGAM_latest3|0|0|3|
+|nonlinear_LiNGAM_latest3a|0|0|3|
+|nonlinear_LiNGAM_latest3b|0|0|5|
+|nonlinear_LiNGAM_latest3c|0|0|5|
+|nonlinear|0|0|3|
+|nonlinear2|0|0|3|
+
+---
+
+---
+## requirements
+- [pytorch(libtorch) > 2.5.0](https://pytorch.org/)
+- [ >= R-4.2.3](https://www.r-project.org/)
+- [gnuplot](http://www.gnuplot.info/)
+- [Graphviz](http://www.graphviz.org/)
+- [Rtools](https://cran.r-project.org/bin/windows/Rtools/history.html)  
+※Rtools must match R version  
+
+## Modifications required to run in your environment  
+Please modify the init.bat according to the installation location and version of R.  
+Describe the bus where **gnuplot** is installed in ``Causal_Search_Experiment/bin/gnuplot_path.txt``  
+Describe the bus where **graphviz** is installed in ``Causal_Search_Experiment/bin/graphviz_path.txt``
+
+
+## build  
+When installed, the pre-built binary files are also automatically placed in bin.  
+To rebuild it yourself, simply rebuild the following and overwrite bin with the generated binaries  
+
+[Statistical_analysis](https://github.com/Sanaxen/Statistical_analysis)  
+https://github.com/Sanaxen/Statistical_analysis/tree/master/example/LiNGAM  
+build :**Release_pytorch** binary:**LiNGAM_cuda.exe**
+
+[cpp_torch](https://github.com/Sanaxen/cpp_torch)  
+buld : project **rnn6** binary:**rnn6.dll**
+
+---  
+
+
 <!--
 ## command line option
 Command_Line_Options.md  
@@ -272,61 +368,7 @@ Command_Line_Options.md
 |Experiment unmeasured confounder & nonlinear| --_Causal_Search_Experiment | 0 or 1 | 0-1 | | 0 |
 |  | --@ | Response file name | 0-1 | Specify a file describing command-line options (first character in the file must be blank) |  |
 |||||||
-
 ---
-## requirements
-- [pytorch(libtorch) > 2.5.0](https://pytorch.org/)
-- [ >= R-4.2.3](https://www.r-project.org/)
-- [gnuplot](http://www.gnuplot.info/)
-- [Graphviz](http://www.graphviz.org/)
-- [Rtools](https://cran.r-project.org/bin/windows/Rtools/history.html)  
-※Rtools must match R version  
-
-## Modifications required to run in your environment  
-Please modify the init.bat according to the installation location and version of R.  
-Describe the bus where **gnuplot** is installed in ``Causal_Search_Experiment/bin/gnuplot_path.txt``  
-Describe the bus where **graphviz** is installed in ``Causal_Search_Experiment/bin/graphviz_path.txt``
-
-
-## build  
-When installed, the pre-built binary files are also automatically placed in bin.  
-To rebuild it yourself, simply rebuild the following and overwrite bin with the generated binaries  
-
-[Statistical_analysis](https://github.com/Sanaxen/Statistical_analysis)  
-https://github.com/Sanaxen/Statistical_analysis/tree/master/example/LiNGAM  
-build :**Release_pytorch** binary:**LiNGAM_cuda.exe**
-
-[cpp_torch](https://github.com/Sanaxen/cpp_torch)  
-buld : project **rnn6** binary:**rnn6.dll**
-
----
-## dataset
-- **fMRI_sim1.csv , fMRI_sim2.csv**  
-fMRI simulation data 
-https://www.fmrib.ox.ac.uk/datasets/netsim/index.html
-(Smith et al., 2011). 
-used sim1 and sim2 datasets with 5 and 10 variables, 
-
-- <img src="./images/image12.png" width="25%">   
-
-- **LiNGAM_latest3.csv**  
-<img src="./images/LiNGAM_latest3.png" width="60%">  
-
-- **nonlinear_LiNGAM_latest3a.csv**  
-<img src="./images/nonlinear_LiNGAM_latest3a.png" width="60%">  
-
-- **nonlinear_LiNGAM_latest3b.csv**  
-<img src="./images/nonlinear_LiNGAM_latest3b.png" width="60%">  
-
-- **nonlinear_LiNGAM_latest3c.csv**  
-<img src="./images/nonlinear_LiNGAM_latest3c.png" width="60%">  
-
-- **nonlinear.csv**  
-<img src="./images/nonlinear.png" width="60%">  
-
-- **nonlinear2.csv**  
-<img src="./images/Nonlinear2.png" width="60%">  
----  
 
 ## reference document  
 - https://www.ds.shiga-u.ac.jp/inga/
