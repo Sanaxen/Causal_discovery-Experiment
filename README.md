@@ -211,9 +211,11 @@ $` loss = max(w1 \,max(e_{i}), w2\,max(MI(e_{i},e_{j})))+\epsilon\,(w1 \,max(e_{
 - **fMRI_sim1.csv , fMRI_sim2.csv**  
 fMRI simulation data 
 https://www.fmrib.ox.ac.uk/datasets/netsim/index.html
-(Smith et al., 2011). 
+(Smith et al., 2011).   
+
 - fMRI_sim1  
 <img src="./images/image14.png" width="20%">  
+
 - fMRI_sim2  
 <img src="./images/image15.png" width="20%">  
 
