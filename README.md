@@ -51,7 +51,7 @@ Feature Importance is a relative value when the maximum is 1.0.
 The green arrow line is the result of the experiment  
 
 - Causal structure compared  
-<img src="./images/image7.png" width="40%">  
+<img src="./images/image7.png" width="30%">  
 reference https://proceedings.mlr.press/v177/uemura22a/uemura22a.pdf   
 
 Solid and dashed lines are estimated edges and ground truths, respectively.  
@@ -60,7 +60,7 @@ Solid and dashed lines are estimated edges and ground truths, respectively.
 <img src="./images/image13.png" width=120>  
 
 - Experiment  
-<img src="./images/Digraph_2.png" width="40%">  <img src="./images/image9.png" width="45%">    
+<img src="./images/Digraph_2.png" width="30%">  <img src="./images/image9.png" width="35%">    
 The values in parentheses indicate the correlation coefficient, the values outside the parentheses indicate the feature importance, and the percentage values indicate the confidence level.
 Feature Importance is a relative value when the maximum is 1.0.  
 The green arrow line is the result of the experiment  
