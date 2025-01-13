@@ -270,6 +270,9 @@ https://www.fmrib.ox.ac.uk/datasets/netsim/index.html
 |nonlinear|0|0|3|
 |nonlinear2|0|0|3|
 
+
+A wasted edge is an edge that could not be deleted because deleting that edge would cause other valid edges to disappear.  
+
 ---
 
 ---
