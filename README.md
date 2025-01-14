@@ -8,9 +8,10 @@ This is not practical at all because the computation time exceeds the acceptable
  $` y=g^{-1} (f(x) + \epsilon ) `$
   
 We are experimenting with a similar model of post-nonlinear model.  
- $` y=g^{-1} (f(x, \mu) + \epsilon ) `$  
+ $` y=g^{-1} (f(x, \,\,\boldsymbol{\mu}) + \epsilon ) `$  
 $` \mu `$ is a generalized Gaussian distribution $`\,`$  
- $` \mu(x) = \frac{\beta^{1/2}}{2\Gamma(1+1/\rho)} exp(-\beta^{1/2}|x-\tilde{x}|^{\rho})`$  
+$` \mu(x) = \frac{\beta^{1/2}}{2\Gamma(1+1/\rho)} exp(-\beta^{1/2}|x-\tilde{x}|^{\rho})`$  
+
 <img src="./images/fig1.png"  width="30%">  
 
 $`\beta`$ and $`\rho`$ are parameters to be determined and estimated by optimization.  
