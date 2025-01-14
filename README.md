@@ -189,7 +189,7 @@ $`|output2 - output| \rightarrow 0  \rightarrow G(y)  = F(x)`$
 
 $`output3 = H(output)`$  
 Train output3 to be the same value as output at the same time  
-$`|output - output3| \rightarrow 0 \rightarrow y  = H(F(x))`$  
+$`|y - output3| \rightarrow 0 \rightarrow y  = H(F(x))= H(G(y))`$  
 
 By training F, G, and H at the same time  
 $`F(x) = f(x)\rightarrow f=F`$,  
