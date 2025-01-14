@@ -180,17 +180,15 @@ $` loss = max(w1 \,max(e_{i}), w2\,max(MI(e_{i},e_{j})))+\epsilon\,(w1 \,max(e_{
 
 $`f`$ and $`g`$ are trained as follows using deep learning.  
 I understand this is pretty redundant.  
-$`y_{pred} = F(x)`$
-Train output to be the same value as y  
-$`|y - y_{pred}| \rightarrow ε`$
+$`output = F(x)`$
 
 $`output2 = G(y)`$  
-Train output2 to be the same value as $`y_{pred}`$  
-$`|output2 - y_{pred}| \rightarrow 0`$  
+Train output2 to be the same value as output  
+$`|output2 - output| \rightarrow 0  \rightarrow G(y)  = F(x)`$  
 
-$`output3 = H(y_{pred})`$  
-Train output3 to be the same value as $`y_{pred}`$ at the same time  
-$`|y_{pred} - output3| \rightarrow 0`$  
+$`output3 = H(output)`$  
+Train output3 to be the same value as output at the same time  
+$`|output - output3| \rightarrow 0 \rightarrow y  = H(F(x))`$  
 
 By training F, G, and H at the same time  
 $`F(x) = f(x)\rightarrow f=F`$,  
@@ -347,7 +345,7 @@ Command_Line_Options.md
 |  | --R_cmd_path |R path |Optional |  "R path" CMD BATCH --slave --vanilla  script.r |  |
 |  | --layout | graphviz layout option |  dot,circo,osage,sfdp,twopi | dot |
 |Experiment  | --independent_variable_skip | 0 or 1  |  0-1 | 0 |
-|Experiment  | --unique_check_rate | 0 or 1  |  0-1 | 0 |
+|Experiment  | --unique_check_rate | 0 or 1  | Number of unique elements  > all size*unique_check_rate -> category| 0.1 |
 |||||||
 |Experiment  unmeasured confounder  | --confounding_factors | 0 or 1 | 0-1 | Set to 1 for latent common variable calculations | 0 |
 |Experiment unmeasured confounder  | --mutual_information_cut | Value | 0-1 | Cut edges using mutual information threshold | 0 |
@@ -368,10 +366,11 @@ Command_Line_Options.md
 |Experiment unmeasured confounder & nonlinear| --n_unit | Number | 1 | Number of units for fully-connected layer|  |
 |Experiment unmeasured confounder & nonlinear| --n_epoch | Number | 1 | Number of epochs| 20 |
 |Experiment  unmeasured confounder & nonlinear| --optimizer | optimizer name | rmsprop,adam,adagrad,sgd | optimizer| rmsprop |
-|Experiment  unmeasured confounder & nonlinear| --minbatch | Number | 1 | minbatch size|  |
+|Experiment  unmeasured confounder & nonlinear| --minbatch | Number | 1 | minbatch size, 0or1->row, min(2000,row)|  row/5|
 |Experiment unmeasured confounder & nonlinear| --dropout_rate | Number | 0-1 | dropout rate| 0.01 |
 |Experiment unmeasured confounder & nonlinear| --confounding_factors_upper2 | Number | 0-1 | | 0.05 |
 |Experiment unmeasured confounder & nonlinear| --u1_param | Number | 0-1 | | 0.001 |
+|Experiment unmeasured confounder & nonlinear| --L1_loss | 0 or 1 | 0-1 | 1:use torch.nn.L1Loss | use torch.nn.MSELoss |
 |Experiment unmeasured confounder & nonlinear| --random_pattern | 0 or 1 | 0-1 |Randomly generate substitution patterns for the B matrix? | 0 |
 |Experiment unmeasured confounder & nonlinear| --_Causal_Search_Experiment | 0 or 1 | 0-1 | | 0 |
 |  | --@ | Response file name | 0-1 | Specify a file describing command-line options (first character in the file must be blank) |  |
