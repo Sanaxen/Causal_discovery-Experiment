@@ -5,6 +5,9 @@ if not exist ".\bin\rnn6.dll"  (
     echo rnn6.dll が必要です (https://github.com/Sanaxen/cpp_torch/tree/master/cpp_torch/test/rnn6)
 ) 
 
+call ..\init.bat
+:set R_INSTALL_PATH="C:\Program Files\R\R-4.2.3"
+
 :set OMP_NUM_THREADS=5
 
 :set csv=nonlinear_LiNGAM_latest3a.csv
@@ -28,6 +31,14 @@ set activation=selu
 :set activation=mish
 set use_gpu=0
 set use_pnl=1
+set normalize_type=0
+
+if "%csv%"=="nonlinear2.csv" set layer=3
+if "%csv%"=="nonlinear2.csv" set epoch=80
+if "%csv%"=="nonlinear2.csv" set unit=30
+if "%csv%"=="nonlinear2.csv" set normalize_type=0
+if "%csv%"=="nonlinear2.csv" set activation=leakyrelu
+
 
 if "%csv%"=="fMRI_sim1.csv" copy fMRI_sim1_comandline_args ..\work\comandline_args /v /y
 if "%csv%"=="fMRI_sim2.csv" copy fMRI_sim2_comandline_args ..\work\comandline_args /v /y
@@ -44,6 +55,8 @@ copy %csv% ..\work\tmp_Causal_relationship_search.csv /v /y
 copy %csv% ..\work\%csv% /v /y
 
 cd ..\work
+set R_LIBS_USER_work=%CD%\lib
+
 type comandline_args > comandline_args_tmp_
 echo  --activation_fnc %activation% >> comandline_args_tmp_
 echo  --learning_rate %learning_rate% >> comandline_args_tmp_
@@ -63,8 +76,11 @@ echo  --u1_param 0.001 >> comandline_args_tmp_
 echo  --use_pnl %use_pnl%  >> comandline_args_tmp_
 echo  --random_pattern 0 >> comandline_args_tmp_
 echo  --dropout_rate 0.01  >> comandline_args_tmp_
+echo  --normalize_type %normalize_type%  >> comandline_args_tmp_
 echo  --_Causal_Search_Experiment 1 >>  comandline_args_tmp_
 :echo  --use_hsic 1 >>  comandline_args_tmp_
+echo  --R_cmd_path "%R_INSTALL_PATH%\bin\R.exe" >> comandline_args_tmp_
+
 
 %bin% --@ comandline_args_tmp_
 :%bin% --@ comandline_args

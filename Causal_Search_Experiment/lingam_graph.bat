@@ -24,19 +24,21 @@ set min_delete=0.23
 
 set lasso=0.0
 
-set R_INSTALL_PATH="C:\Program Files\R\R-4.2.3"
-set R_LIBS_USER=%R_INSTALL_PATH%\library
+call ..\init.bat
+:set R_INSTALL_PATH="C:\Program Files\R\R-4.2.3"
+:set R_LIBS_USER="%R_INSTALL_PATH%"\library
 
-set r=%R_INSTALL_PATH%\bin
+set r="%R_INSTALL_PATH%"\bin
 
 cd ..\work
 set R_LIBS_USER_work=%CD%\lib
+set R_LIBS_USER=%R_LIBS_USER_work%
 
 echo %R_LIBS_USER_work%
 
 type comandline_args > comandline_args_tmp_
 :echo  --R_cmd_path "%R_INSTALL_PATH%\bin\R.exe" >> comandline_args_tmp_
-:echo  --use_bootstrap 1 >> comandline_args_tmp_
+echo  --use_bootstrap 1 >> comandline_args_tmp_
 echo --lasso %lasso%  >> comandline_args_tmp_
 echo  --load_model lingam.model  --loss_data_load 0 >> comandline_args_tmp_
 echo  --min_cor_delete %min_cor% >> comandline_args_tmp_
@@ -45,7 +47,7 @@ echo  --min_delete %min_delete% >> comandline_args_tmp_
 :Mutual information visualization
 :echo  --mutual_information_values 1 >> comandline_args_tmp_
 echo  --confounding_factors_upper 1.5 >> comandline_args_tmp_
-echo  --view_confounding_factors 1 >> comandline_args_tmp_
+echo  --view_confounding_factors 0 >> comandline_args_tmp_
 echo  --normalize_type 2 >> comandline_args_tmp_
 :echo  --layout circo >> comandline_args_tmp_
 echo  --pause 0 >> comandline_args_tmp_
@@ -56,8 +58,10 @@ copy Digraph.png ..\Causal_Search_Experiment /v /y
 
 :goto end
 
-call ..\init.bat
+:call ..\init.bat
 set R_LIBS_USER=%R_LIBS_USER_work%
+
+:%r%\x64\Rgui.exe
 
 %r%\R.exe CMD BATCH --slave --vanilla  b_probability_barplot.r
 %r%\R.exe CMD BATCH --slave --vanilla  Causal_effect.r

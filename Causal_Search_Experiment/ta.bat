@@ -7,6 +7,7 @@ set num=0
 
 if exist ..\work\lingam.model.update (
 	
+	if exist Digraph_%num%.png goto countup
 	copy ..\work\lingam.model.update lingam.model.update.txt /v /y
 	call lingam_graph.bat
 	del ..\work\lingam.model.update
@@ -35,10 +36,11 @@ if exist ..\work\lingam.model.update (
 	zip -u -j lingam_output.zip ..\work\lingam.model.b_probability.csv
 	zip -u -j lingam_output.zip ..\work\comandline_args
 	
+:countup	
 	set /a num=num+1
 	
-	if %num%==5 exit
-	if %num%=="5" exit
+	:if %num%==5 exit
+	:if %num%=="5" exit
 	
 )
 timeout /t 5

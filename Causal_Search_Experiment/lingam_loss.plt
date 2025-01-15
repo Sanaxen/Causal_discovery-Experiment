@@ -9,6 +9,7 @@ set object 1 rect behind from screen 0,0 to screen 1,1 fc rgb "#FAFAFA" fillstyl
 set key right top
 
 # smooth [unique, csplines, acsplines, bezier, sbezier]
+while(1==1){
 
 plot '../work/lingam_loss.dat' using 1   t "Residual "  with lines linewidth 1 linecolor rgbcolor "#F5A9A9" dt 1
 replot '../work/lingam_loss.dat' using 2  t "Independence" with lines linewidth 1 linecolor rgbcolor "#A9BCF5" dt 1
@@ -16,4 +17,6 @@ replot '../work/lingam_loss.dat' using 1  smooth bezier t "residual"  with lines
 replot '../work/lingam_loss.dat' using 2  smooth bezier t "independence" with lines linewidth 2 linecolor rgbcolor "#0068b7"
 
 pause 10
+}
+
 reread
