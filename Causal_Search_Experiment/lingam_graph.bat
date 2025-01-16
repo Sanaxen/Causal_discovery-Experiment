@@ -52,7 +52,7 @@ echo  --normalize_type 2 >> comandline_args_tmp_
 :echo  --layout circo >> comandline_args_tmp_
 echo  --pause 0 >> comandline_args_tmp_
 
-%bin% --@ comandline_args_tmp_ > ..\Causal_Search_Experiment\log.txt
+"%bin%" --@ comandline_args_tmp_ > ..\Causal_Search_Experiment\log.txt
 
 copy Digraph.png ..\Causal_Search_Experiment /v /y
 

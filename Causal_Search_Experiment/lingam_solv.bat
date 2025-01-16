@@ -82,7 +82,7 @@ echo  --_Causal_Search_Experiment 1 >>  comandline_args_tmp_
 echo  --R_cmd_path "%R_INSTALL_PATH%\bin\R.exe" >> comandline_args_tmp_
 
 
-%bin% --@ comandline_args_tmp_
+"%bin%" --@ comandline_args_tmp_
 :%bin% --@ comandline_args
 
 cd ..\Causal_Search_Experiment
