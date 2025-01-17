@@ -2,7 +2,7 @@ set cur=%~dp0
 set bin=%cur%\bin\LiNGAM_cuda.exe
 
 if not exist ".\bin\rnn6.dll"  (
-    echo rnn6.dll が必要です (https://github.com/Sanaxen/cpp_torch/tree/master/cpp_torch/test/rnn6)
+    echo rnn6.dll is required (https://github.com/Sanaxen/cpp_torch/tree/master/cpp_torch/test/rnn6)
 ) 
 
 call ..\init.bat
@@ -33,11 +33,13 @@ set use_gpu=0
 set use_pnl=1
 set normalize_type=0
 
-if "%csv%"=="nonlinear2.csv" set layer=3
-if "%csv%"=="nonlinear2.csv" set epoch=80
-if "%csv%"=="nonlinear2.csv" set unit=30
-if "%csv%"=="nonlinear2.csv" set normalize_type=0
-if "%csv%"=="nonlinear2.csv" set activation=leakyrelu
+echo "%csv%" > current_csv
+if "%csv%"=="nonlinear2.csv" (
+	:set layer=3
+	:set epoch=80
+	:set unit=30
+	:set activation=leakyrelu
+)
 
 
 if "%csv%"=="fMRI_sim1.csv" copy fMRI_sim1_comandline_args ..\work\comandline_args /v /y

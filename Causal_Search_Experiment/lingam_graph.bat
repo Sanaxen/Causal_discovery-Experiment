@@ -17,11 +17,26 @@ set min_cor=0.0
 :Remove relationships with small mutual information content
 set mi=0
 
+: view mutual_information_values
+set mutual_information_values=1
+
 
 :Remove small causal effect relationships
 set min_delete=0.01
 set min_delete=0.23
 
+set /P csv=< current_csv
+echo %csv%
+
+if %csv%=="nonlinear2.csv" (
+set min_delete=0.01
+set mi=0.413
+)
+
+:diagram plot type :dot ,circo
+set layout=dot
+
+:use lasso
 set lasso=0.0
 
 call ..\init.bat
@@ -44,12 +59,14 @@ echo  --load_model lingam.model  --loss_data_load 0 >> comandline_args_tmp_
 echo  --min_cor_delete %min_cor% >> comandline_args_tmp_
 echo  --mutual_information_cut %mi% >> comandline_args_tmp_
 echo  --min_delete %min_delete% >> comandline_args_tmp_
-:Mutual information visualization
-:echo  --mutual_information_values 1 >> comandline_args_tmp_
+
 echo  --confounding_factors_upper 1.5 >> comandline_args_tmp_
 echo  --view_confounding_factors 0 >> comandline_args_tmp_
 echo  --normalize_type 2 >> comandline_args_tmp_
-:echo  --layout circo >> comandline_args_tmp_
+echo  --layout %layout% >> comandline_args_tmp_
+echo  --mutual_information_values %mutual_information_values%  >>  comandline_args_tmp_
+
+
 echo  --pause 0 >> comandline_args_tmp_
 
 "%bin%" --@ comandline_args_tmp_ > ..\Causal_Search_Experiment\log.txt
