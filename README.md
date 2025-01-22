@@ -44,7 +44,7 @@ The green arrow line is the result of ICA-LiNGAM
 
 - Experiment  
 
-<img src="./images/Digraph.png" width="35%"> <img src="./images/image10.png" width="35%">    
+<img src="./images/fMRI_sim2/Digraph_dot.png" width="35%"> <img src="./images/image10.png" width="35%">    
     
 
 The values in parentheses indicate the correlation coefficient, the values outside the parentheses indicate the feature importance, and the percentage values indicate the confidence level.
@@ -61,7 +61,7 @@ Solid and dashed lines are estimated edges and ground truths, respectively.
 <img src="./images/image13.png" width=120>  
 
 - Experiment  
-<img src="./images/Digraph_2.png" width="30%">  <img src="./images/image9.png" width="35%">    
+<img src="./images/fMRI_sim1/Digraph_dot.png" width="30%">  <img src="./images/image9.png" width="35%">    
 The values in parentheses indicate the correlation coefficient, the values outside the parentheses indicate the feature importance, and the percentage values indicate the confidence level.
 Feature Importance is a relative value when the maximum is 1.0.  
 The green arrow line is the result of the experiment  
@@ -312,6 +312,9 @@ https://www.fmrib.ox.ac.uk/datasets/netsim/index.html
 
 --- 
 <img src="./images/image12.png" width="25%">   
+
+In the test, f1 and f2 are not entered because we want to test whether the correct causal structure can be estimated even with unobserved data.  
+
 
 - **LiNGAM_latest3.csv**  
 <img src="./images/LiNGAM_latest3.png" width="60%">  
