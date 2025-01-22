@@ -32,13 +32,27 @@ set activation=selu
 set use_gpu=0
 set use_pnl=1
 set normalize_type=0
+set u1_param=0.001
+set confounding_factors_upper2=0.05
+set use_hsic=0
+set minbatch=0
+set optimizer=rmsprop
+set plot_max_loss=2
 
 echo "%csv%" > current_csv
+
+
+if "%csv%"=="fMRI_sim2.csv" (
+	set plot_max_loss=10
+)
+
 if "%csv%"=="nonlinear2.csv" (
-	:set layer=3
-	:set epoch=80
-	:set unit=30
-	:set activation=leakyrelu
+	rem set learning_rate=0.02
+	rem set epoch=80
+	set unit=5
+	set layer=4
+	set confounding_factors_upper2=100.0
+	set u1_param=0.00001
 )
 
 
@@ -52,6 +66,7 @@ if "%csv%"=="nonlinear_LiNGAM_latest3a.csv" copy LiNGAM_latest3_comandline_args 
 if "%csv%"=="nonlinear_LiNGAM_latest3b.csv" copy LiNGAM_latest3_comandline_args ..\work\comandline_args /v /y
 if "%csv%"=="nonlinear_LiNGAM_latest3c.csv" copy LiNGAM_latest3_comandline_args ..\work\comandline_args /v /y
 
+del Digraph_*.png
 :pause
 copy %csv% ..\work\tmp_Causal_relationship_search.csv /v /y
 copy %csv% ..\work\%csv% /v /y
@@ -70,17 +85,18 @@ echo  --n_epoch %epoch% >> comandline_args_tmp_
 echo  --use_gpu %use_gpu% >> comandline_args_tmp_
 echo  --confounding_factors_sampling 30000 >> comandline_args_tmp_
 echo  --rho 3 >> comandline_args_tmp_
-echo  --optimizer rmsprop >> comandline_args_tmp_
+echo  --optimizer %optimizer% >> comandline_args_tmp_
 echo  --csv %csv% >> comandline_args_tmp_
-echo  --minbatch 0 >> comandline_args_tmp_
-echo  --confounding_factors_upper2 0.05 >> comandline_args_tmp_
-echo  --u1_param 0.001 >> comandline_args_tmp_
+echo  --minbatch %minbatch% >> comandline_args_tmp_
+echo  --confounding_factors_upper2 %confounding_factors_upper2% >> comandline_args_tmp_
+echo  --u1_param %u1_param% >> comandline_args_tmp_
 echo  --use_pnl %use_pnl%  >> comandline_args_tmp_
 echo  --random_pattern 0 >> comandline_args_tmp_
 echo  --dropout_rate 0.01  >> comandline_args_tmp_
 echo  --normalize_type %normalize_type%  >> comandline_args_tmp_
 echo  --_Causal_Search_Experiment 1 >>  comandline_args_tmp_
-:echo  --use_hsic 1 >>  comandline_args_tmp_
+echo  --use_hsic %use_hsic% >>  comandline_args_tmp_
+echo  --plot_max_loss %plot_max_loss% >>  comandline_args_tmp_
 echo  --R_cmd_path "%R_INSTALL_PATH%\bin\R.exe" >> comandline_args_tmp_
 
 

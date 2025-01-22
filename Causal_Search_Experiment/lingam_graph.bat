@@ -25,16 +25,28 @@ set mutual_information_values=1
 set min_delete=0.01
 set min_delete=0.23
 
+:diagram plot type :dot ,circo
+set layout=dot
+
 set /P csv=< current_csv
 echo %csv%
 
-if %csv%=="nonlinear2.csv" (
-set min_delete=0.01
-set mi=0.413
+if %csv%=="fMRI_sim1.csv" (
+	set min_delete=0.23
+	rem set min_delete=0.83
+	rem set layout=circo
+)
+if %csv%=="fMRI_sim2.csv" (
+	set min_delete=0.85
+	rem set mi=0.07
+	rem set layout=circo
 )
 
-:diagram plot type :dot ,circo
-set layout=dot
+if %csv%=="nonlinear2.csv" (
+	set min_delete=0.001
+	rem set min_delete=0.5
+)
+
 
 :use lasso
 set lasso=0.0
@@ -52,9 +64,9 @@ set R_LIBS_USER=%R_LIBS_USER_work%
 echo %R_LIBS_USER_work%
 
 type comandline_args > comandline_args_tmp_
-:echo  --R_cmd_path "%R_INSTALL_PATH%\bin\R.exe" >> comandline_args_tmp_
+echo  --R_cmd_path "%R_INSTALL_PATH%\bin\R.exe" >> comandline_args_tmp_
 echo  --use_bootstrap 1 >> comandline_args_tmp_
-echo --lasso %lasso%  >> comandline_args_tmp_
+echo  --lasso %lasso%  >> comandline_args_tmp_
 echo  --load_model lingam.model  --loss_data_load 0 >> comandline_args_tmp_
 echo  --min_cor_delete %min_cor% >> comandline_args_tmp_
 echo  --mutual_information_cut %mi% >> comandline_args_tmp_

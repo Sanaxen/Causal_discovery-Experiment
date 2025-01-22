@@ -85,7 +85,7 @@ The green arrow line is the result of the experiment
 
 
 ---
-## Note  
+## Note1  
 This is still an experimental implementation.
 Therefore, the optimization is close to a parameter brute force approach,   
 where randomly generated parameters are set and computed, and the optimal solution is updated as the LOSS becomes smaller.   
@@ -99,19 +99,19 @@ In other experiments, it has often occurred that 20,000 calculations are require
 The causal structure is correct when the LOSS drops the most, even though it may change only slightly.  
 
 - loss  1->2->3->4  
-<img src="./images/loss2.png" width="30%">  
+<img src="./images/fMRI_sim2/Digraph_0.png/" width="30%">  
 
 - 1  
-<img src="./images/Digraph1.png" width="30%">  
+<img src="./images/fMRI_sim2/Digraph_1.png" width="30%">  
 
 - 2  
-<img src="./images/Digraph2.png" width="30%">  
+<img src="./images/fMRI_sim2/Digraph_2.png" width="30%">  
 
 - 3  
-<img src="./images/Digraph3.png" width="30%">  
+<img src="./images/fMRI_sim2/Digraph_3.png" width="30%">  
 
 - 4   
-<img src="./images/Digraph.png" width="30%">  
+<img src="./images/fMRI_sim2/Digraph_dot.png" width="30%">  
 
 ---
 Roughly speaking, ICA-LiNGAM is used. However, LiNGAM is used to obtain the B matrix, so it does not have to be LiNGAM.  
@@ -120,6 +120,7 @@ Adding fluctuations to the input data changes the causal structure (B matrix) th
 In other words, different causal (parent-child) structures are obtained.
 
 In the case of ICA-LiNGAM, it is a linear model, so it is as follows.  
+
 
 ```math
 \begin{pmatrix}
@@ -205,6 +206,96 @@ Further, the parameters are updated so that LOSS is minimized.
 $` loss = max(w1 \,max(e_{i}), w2\,max(MI(e_{i},e_{j})))+\epsilon\,(w1 \,max(e_{i}), w2\,max(MI(e_{i},e_{j})))`$  
 
 ---
+### Note2  
+#### Deleting Redundant Edges  
+
+A causal relationship that is presumed in the opposite direction of the known correct answer or certain knowledge is clearly erroneous.  
+However, useless relationships may be inferred even when they are not supposed to be in the opposite direction. Of these, it is possible to delete relations that are omissible or considered unnecessary.
+However, arbitrarily deleting them is an erroneous practice.  
+When the correct answer is unknown to begin with, such an action makes no sense at all and may lead to an arbitrary causal relationship as the solution.  
+
+Therefore, such “edge deletion” may only be specified under the following conditions.  
+
+- Limit the size of the causal effect and invalidate the causal relationship if the estimated effect is smaller than the specified value.
+- Invalidate the causal relationship if the estimated independence index is smaller than the specified value (the smaller the value, the more irrelevant).
+- Limit the magnitude of the correlation and invalidate the causal relationship if the estimated correlation is smaller than the specified value.
+- Disable causality by setting the coefficients of characteristics (explanatory variables) that are considered unnecessary for forecasting in a lass regression to 0.  
+
+
+These four ways can be implemented. Combinations are also possible, but the order cannot be specified.   
+
+The magnitude of the causal effect is the magnitude of the absolute value of the coefficient of the relevant relationship in the B matrix in the case of a causal search for a linear relationship
+
+$`x_{i} \rightarrow x_{j}`$  
+
+$`x_{i} = \sum_{n=1}^NB_{i,j}x_{j}`$   
+
+The magnitude of the absolute value of the IMPORTANCE in the non-linear case.  
+
+Algorithmically, it often takes a long time to converge to an optimal solution, depending on the choice of parameters.
+
+This makes it very difficult to decide where to stop the iterative computation.
+Losses may initially go down toward the optimal solution, but at some point they may stall.
+The difficulties are.  
+
+1. to assume that the solution has already converged, stop the calculation, and assume that the solution at that point is the correct solution.
+2. to continue the calculation assuming that it has not yet converged.  
+
+In many cases, 1. identifies the causal structure of the correct solution, but in other cases it does not.  
+be patient and continue the calculation, which may result in a sudden decrease in loss.  
+In such cases, a decision must still be made as to whether or not to assume that point as the solution.  
+
+
+In [abpnl](https://github.com/rafcc/abpnl), the calculation is stopped at n_epoch(default:100).
+In this project, epoch(default:60) is used, but 3000 times is set by default for sampling of causal structure patterns.
+In the meantime, `early_stopping` can be specified.  
+
+This difficulty is due to the fact that both of these methods use deep-learning, which has a hyperparameter that can be adjusted, and depending on how well it is adjusted, it may be possible to get to the correct answer immediately.
+Some of them lead to the correct answer immediately, others not so much.  
+
+I recognize that this is a very big issue, but I don't know how to solve it at the moment.
+We have tried many things, but nothing has worked. The source code is therefore very messy.  
+
+
+<img src="./images/Nonlinear2.png" width="60%">  
+
+<img src="./Causal_Search_Experiment/output/nonlinear2/bad_case/Digraph_6.png" width="60%">  
+
+Fortunately, however, the presumption of a backward causal direction has not occurred.  
+This case has not reached the correct solution in 9000 attempts. If we take the point at which the last minimum value was recorded, 1309 times, as the solution, then  
+It is clear from the true positive answer that $`x \rightarrow y`$  is a completely useless edge. It is also clear from the
+$`w \rightarrow z`$ is not indirectly irrelevant, but it is an unnecessary edge.  
+
+These cannot be removed by the previously described method: the causal effect of $`w \rightarrow z`$
+has a causal effect of 0.311, so if you try to remove edges below this value, important correct edges will also be removed.
+
+The correlation is 0.01, and if we were to delete based on this, we would delete the $`y \rightarrow z`$ .
+This is because although the correlation is 0, $`y \rightarrow z`$  has a causal relationship.
+
+
+So if we look at the mutual information content, we see that it is 0.422, 
+so if we remove it based on this, the result improves, but $`x \rightarrow y`$ remains.
+In other words, we can see that we have not converged yet. Unfortunately, I can say this because I know the correct answer.
+
+So if we change the hyperparameters, we get  
+<img src="./Causal_Search_Experiment/output/nonlinear2/good_case/Digraph_2.png" width="60%">  
+In this case, it can be determined that the loss has converged at 53 times. We can determine that the loss will not decrease any further if we continue the calculation.  
+
+<img src="./Causal_Search_Experiment/output/nonlinear2/good_case/loss.png" width="60%">  
+
+And if you simply disable the causal effect below 0.498. 
+
+<img src="./Causal_Search_Experiment/output/nonlinear2/good_case/Digraph.png" width="60%">  
+
+and obtains a completely correct answer.
+
+For reference, try [abpnl](https://github.com/rafcc/abpnl) and get the following results  
+<img src="./images/dag.png" width="30%">  
+
+ $`z \rightarrow y`$ This is completely wrong and backwards.
+
+---
+
 
 ## dataset
 - **fMRI_sim1.csv , fMRI_sim2.csv**  
@@ -270,7 +361,7 @@ https://www.fmrib.ox.ac.uk/datasets/netsim/index.html
 |nonlinear_LiNGAM_latest3b|0|0|5|
 |nonlinear_LiNGAM_latest3c|0|0|5|
 |nonlinear|0|0|3|
-|nonlinear2|0|0|3|
+|nonlinear2|0|0|0|
 
 
 A wasted edge is an edge that could not be deleted because deleting that edge would cause other valid edges to disappear.  
@@ -345,6 +436,7 @@ Command_Line_Options.md
 |  | --use_adaptive_lasso | 0 or 1 | 0-1 | Use adaptive LASSO for variable selection in LASSO | 1 |
 |  | --R_cmd_path |R path |Optional |  "R path" CMD BATCH --slave --vanilla  script.r |  |
 |  | --layout | graphviz layout option |  dot,circo,osage,sfdp,twopi | dot |
+|  | --plot_max_loss | Number | Y maximum| loss plot( gnuplt) Y axis max value|2.0|
 |Experiment  | --independent_variable_skip | 0 or 1  |  0-1 | 0 |
 |Experiment  | --unique_check_rate | 0 or 1  | Number of unique elements  > all size*unique_check_rate -> category| 0.1 |
 |||||||
