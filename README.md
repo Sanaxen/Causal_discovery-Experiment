@@ -85,7 +85,7 @@ The green arrow line is the result of the experiment
 
 
 ---
-## Note1  
+## Note  
 This is still an experimental implementation.
 Therefore, the optimization is close to a parameter brute force approach,   
 where randomly generated parameters are set and computed, and the optimal solution is updated as the LOSS becomes smaller.   
@@ -206,7 +206,7 @@ Further, the parameters are updated so that LOSS is minimized.
 $` loss = max(w1 \,max(e_{i}), w2\,max(MI(e_{i},e_{j})))+\epsilon\,(w1 \,max(e_{i}), w2\,max(MI(e_{i},e_{j})))`$  
 
 ---
-### Note2  
+  
 #### Deleting Redundant Edges  
 
 A causal relationship that is presumed in the opposite direction of the known correct answer or certain knowledge is clearly erroneous.  
@@ -294,7 +294,8 @@ For reference, try [abpnl](https://github.com/rafcc/abpnl) and get the following
 
  $`z \rightarrow y`$ This is completely wrong and backwards.
 
-**I think it's a problem that we are currently relying on such a somewhat sneaky method.**
+**I think it's a problem that we are currently relying on such a somewhat sneaky method.**  
+
 ---
 
 
