@@ -294,6 +294,7 @@ For reference, try [abpnl](https://github.com/rafcc/abpnl) and get the following
 
  $`z \rightarrow y`$ This is completely wrong and backwards.
 
+**I think it's a problem that we are currently relying on such a somewhat sneaky method.**
 ---
 
 
@@ -409,7 +410,7 @@ Command_Line_Options.md
 
 # Command Line Options
 
-| Command Line Option | Description | Argument | Number of Arguments | Details | Default |
+|  | Command Line Option|Description | Number of Arguments | Details | Default |
 |---------------------|-------------|----------|---------------------|---------|---------|
 |  | --csv | CSV file name | 1 | Mandatory |  |
 |  | --header | 0 or 1 | 0-1 | If a header (column name) exists, set to 1 | 0 |
@@ -464,7 +465,9 @@ Command_Line_Options.md
 |Experiment  unmeasured confounder & nonlinear| --optimizer | optimizer name | rmsprop,adam,adagrad,sgd | optimizer| rmsprop |
 |Experiment  unmeasured confounder & nonlinear| --minbatch | Number | 1 | minbatch size, 0or1->row, min(2000,row)|  row/5|
 |Experiment unmeasured confounder & nonlinear| --dropout_rate | Number | 0-1 | dropout rate| 0.01 |
-|Experiment unmeasured confounder & nonlinear| --confounding_factors_upper2 | Number | 0-1 | | 0.05 |
+|Experiment unmeasured confounder & nonlinear| --view_confounding_factors | 0 or 1 | 0-1 |Set to 1 if you want estimated unobserved common variables to be plotted. | 0 |
+|Experiment unmeasured confounder & nonlinear| --confounding_factors_upper2 | Number | 0-1 |A lower bound on the estimated causal effect of unobserved common variables.
+Causal effects below this bound are not considered to be unobserved common variables. | 0.05 |
 |Experiment unmeasured confounder & nonlinear| --u1_param | Number | 0-1 | | 0.001 |
 |Experiment unmeasured confounder & nonlinear| --L1_loss | 0 or 1 | 0-1 | 1:use torch.nn.L1Loss | use torch.nn.MSELoss |
 |Experiment unmeasured confounder & nonlinear| --random_pattern | 0 or 1 | 0-1 |Randomly generate substitution patterns for the B matrix? | 0 |
@@ -472,6 +475,17 @@ Command_Line_Options.md
 |  | --@ | Response file name | 0-1 | Specify a file describing command-line options (first character in the file must be blank) |  |
 |||||||
 ---
+
+| solver type | option | note|
+|------------|-------------|--|
+|ICA-LiNGAM|--confounding_factors 0|This is regular ica LiNGAM.|
+|Finding causal relationships while allowing for unmeasured confounding factors, <br>but assuming that all relationships are **linear**|--confounding_factors 1||
+|Find causal relationships while accounting for unmeasured confounding factors,  <br>without the need to assume that relationships are **nonlinear or linear**|--confounding_factors 1 <br> --nonlinear 1||
+|It finds causal relationships without assuming that relationships are **nonlinear or linear**,<br> assuming there are no unmeasured confounding factors.|--confounding_factors 1 <br> --nonlinear 1<br> --confounding_factors_upper2 100<br>--u1_param 0.00001|This can be done by setting a large value for confounding_factors_upper2 <br>and<br> a small value for u1_param.|
+|Plot estimated unobserved confounders in a graph|--view_confounding_factors 1<br>--confounding_factors 1||
+|||||||
+
+
 
 ## reference document  
 - https://www.ds.shiga-u.ac.jp/inga/

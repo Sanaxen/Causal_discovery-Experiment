@@ -47,8 +47,6 @@ if "%csv%"=="fMRI_sim2.csv" (
 )
 
 if "%csv%"=="nonlinear2.csv" (
-	rem set learning_rate=0.02
-	rem set epoch=80
 	set unit=5
 	set layer=4
 	set confounding_factors_upper2=100.0
