@@ -16,7 +16,7 @@ $` \mu(x) = \frac{\beta^{1/2}}{2\Gamma(1+1/\rho)} exp(-\beta^{1/2}|x-\tilde{x}|^
 
 $`\beta`$ and $`\rho`$ are parameters to be determined and estimated by optimization.  
 
- $` loss = max(w1 \,max(\epsilon_{i}), w2\,max(MI(e_{i},e_{j})))+\epsilon\,(w1 \,max(\epsilon_{i}), w2\,max(MI(e_{i},e_{j})))`$
+$` loss = max(w1 \,max(\epsilon_{i}), w2\,max(MI(e_{i},e_{j})))+\epsilon\,(w1 \,max(\epsilon_{i}), w2\,max(MI(e_{i},e_{j})))`$
 
 $' e_{i} = obs\_x_{i} - pred\_x_{i} '$  
 $' \epsilon_{i} = \sqrt{ \sum{e_{i}^2}/obs\_num} '$  
