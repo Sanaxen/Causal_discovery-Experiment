@@ -18,8 +18,8 @@ $`\beta`$ and $`\rho`$ are parameters to be determined and estimated by optimiza
 
 $` loss = max(w1 \,max(\epsilon_{i}), w2\,max(MI(e_{i},e_{j})))+\epsilon\,(w1 \,max(\epsilon_{i}), w2\,max(MI(e_{i},e_{j})))`$
 
-$' e_{i} = obs(x_{i})_{k} - pred(x_{i})_{k} '$  
-$' \epsilon_{i} = \sqrt{\sum_{k=1}^{n} (e_{i}^{2})/num}'$  
+$`e_{i}`$ is the noise component of variable '$x_{i}'$  
+$`\epsilon_{i}`$ is the RMSE of $`e_{i}`$   
 
 MI is an independent variable if it is zero in the mutual information content.   
 In other words, $`\mu`$ is obtained so that both the residuals and
