@@ -250,7 +250,7 @@ In such cases, a decision must still be made as to whether or not to assume that
 
 
 In [abpnl](https://github.com/rafcc/abpnl), the calculation is stopped at n_epoch(default:100).
-In this project, epoch(default:60) is used, but 3000 times is set by default for sampling of causal structure patterns.
+In this project, epoch(default:60) is used, but 30000 times is set by default for sampling of causal structure patterns.
 In the meantime, `early_stopping` can be specified.  
 
 This difficulty is due to the fact that both of these methods use deep-learning, which has a hyperparameter that can be adjusted, and depending on how well it is adjusted, it may be possible to get to the correct answer immediately.
@@ -261,36 +261,18 @@ We have tried many things, but nothing has worked. The source code is therefore 
 
 
 <img src="./images/Nonlinear2.png" width="60%">  
+<img src="./Causal_Search_Experiment/output/nonlinear2/Digraph_2.png" width="60%">  
 
-<img src="./Causal_Search_Experiment/output/nonlinear2/bad_case/Digraph_6.png" width="60%">  
+it can be determined that the loss has converged at 53 times. 
+We can determine that the loss will not decrease any further if we continue the calculation.  
 
-Fortunately, however, the presumption of a backward causal direction has not occurred.  
-This case has not reached the correct solution in 9000 attempts. If we take the point at which the last minimum value was recorded, 1309 times, as the solution, then  
-It is clear from the true positive answer that $`x \rightarrow y`$  is a completely useless edge. It is also clear from the
-$`w \rightarrow z`$ is not indirectly irrelevant, but it is an unnecessary edge.  
+<img src="./Causal_Search_Experiment/output/nonlinear2/loss.png" width="60%">  
 
-These cannot be removed by the previously described method: the causal effect of $`w \rightarrow z`$
-has a causal effect of 0.311, so if you try to remove edges below this value, important correct edges will also be removed.
+That the effects would be removed in order from smallest to largest,
+In this case, we remove up to a causal effect of 0.498 or less.
 
-The correlation is 0.01, and if we were to delete based on this, we would delete the $`y \rightarrow z`$ .
-This is because although the correlation is 0, $`y \rightarrow z`$  has a causal relationship.
+<img src="./Causal_Search_Experiment/output/nonlinear2/Digraph.png" width="60%">  
 
-
-So if we look at the mutual information content, we see that it is 0.422, 
-so if we remove it based on this, the result improves, but $`x \rightarrow y`$ remains.
-In other words, we can see that we have not converged yet. Unfortunately, I can say this because I know the correct answer.
-
-So if we change the hyperparameters, we get  
-<img src="./Causal_Search_Experiment/output/nonlinear2/good_case/Digraph_2.png" width="60%">  
-In this case, it can be determined that the loss has converged at 53 times. We can determine that the loss will not decrease any further if we continue the calculation.  
-
-<img src="./Causal_Search_Experiment/output/nonlinear2/good_case/loss.png" width="60%">  
-
-And if you simply disable the causal effect below 0.498. 
-
-<img src="./Causal_Search_Experiment/output/nonlinear2/good_case/Digraph.png" width="60%">  
-
-and obtains a completely correct answer.
 
 For reference, try [abpnl](https://github.com/rafcc/abpnl) and get the following results  
 <img src="./images/dag.png" width="30%">  
