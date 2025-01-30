@@ -10,15 +10,17 @@ call ..\init.bat
 
 :set OMP_NUM_THREADS=5
 
+: test dataset
 :set csv=nonlinear_LiNGAM_latest3a.csv
 :set csv=nonlinear_LiNGAM_latest3b.csv
-:set csv=nonlinear_LiNGAM_latest3c.csv
+set csv=nonlinear_LiNGAM_latest3c.csv
 :set csv=LiNGAM_latest3.csv
 :set csv=nonlinear.csv
 :set csv=nonlinear2.csv
 :set csv=fMRI_sim1.csv
-set csv=fMRI_sim2.csv
+:set csv=fMRI_sim2.csv
 
+:parameter
 set learning_rate=0.01
 :default=0.1
 set distribution_rate=1
@@ -41,10 +43,34 @@ set plot_max_loss=2
 
 echo "%csv%" > current_csv
 
+if "%csv%"=="LiNGAM_latest3.csv" (
+	set layer=4
+	set epoch=120
+)
+if "%csv%"=="nonlinear_LiNGAM_latest3a.csv" (
+	set layer=4
+	set epoch=120
+)
+if "%csv%"=="nonlinear_LiNGAM_latest3b.csv" (
+	set layer=4
+	set epoch=120
+)
+if "%csv%"=="nonlinear_LiNGAM_latest3c.csv" (
+	set layer=4
+	set epoch=120
+)
 
 if "%csv%"=="fMRI_sim2.csv" (
 	set plot_max_loss=10
 )
+
+if "%csv%"=="nonlinear.csv" (
+	set layer=4
+	set epoch=120
+	set confounding_factors_upper2=100.0
+	set u1_param=0.00001
+)
+
 
 if "%csv%"=="nonlinear2.csv" (
 	set unit=5

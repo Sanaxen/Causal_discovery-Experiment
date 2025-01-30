@@ -17,19 +17,49 @@ set min_cor=0.0
 :Remove relationships with small mutual information content
 set mi=0
 
-: view mutual_information_values
+: mutual_information_values
 set mutual_information_values=1
+
+: view mutual_information_values
+set view_confounding_factors=0
+
 
 
 :Remove small causal effect relationships
 set min_delete=0.01
-set min_delete=0.23
+:set min_delete=0.23
 
 :diagram plot type :dot ,circo
 set layout=dot
 
 set /P csv=< current_csv
 echo %csv%
+
+copy %csv% ..\work\tmp_Causal_relationship_search.csv /v /y
+
+if %csv%=="LiNGAM_latest3.csv" (
+	rem set set min_delete=0.35
+	rem set min_delete=0.3
+	set min_cor=0.12
+	set min_delete=0.7
+	rem set mi=0.41
+	set view_confounding_factors=1
+)
+if %csv%=="nonlinear_LiNGAM_latest3a.csv" (
+	set min_delete=0.2
+	set mi=0.8
+	set view_confounding_factors=1
+)
+if %csv%=="nonlinear_LiNGAM_latest3b.csv" (
+	set min_delete=0.2
+	set mi=0.56
+	set view_confounding_factors=1
+)
+if %csv%=="nonlinear_LiNGAM_latest3c.csv" (
+	set min_delete=0.2
+	set mi=0.4
+	set view_confounding_factors=1
+)
 
 if %csv%=="fMRI_sim1.csv" (
 	set min_delete=0.23
@@ -42,11 +72,19 @@ if %csv%=="fMRI_sim2.csv" (
 	rem set layout=circo
 )
 
+if %csv%=="nonlinear.csv" (
+	set min_delete=0.004
+	rem set min_delete=0.5
+)
+
 if %csv%=="nonlinear2.csv" (
 	set min_delete=0.001
 	rem set min_delete=0.5
 )
 
+if %view_confounding_factors%==1 (
+	set mutual_information_values=1
+)
 
 :use lasso
 set lasso=0.0
@@ -58,6 +96,9 @@ call ..\init.bat
 set r="%R_INSTALL_PATH%"\bin
 
 cd ..\work
+if exist lingam.model.update copy lingam.model.update.bak /y /v
+
+
 set R_LIBS_USER_work=%CD%\lib
 set R_LIBS_USER=%R_LIBS_USER_work%
 
@@ -73,7 +114,7 @@ echo  --mutual_information_cut %mi% >> comandline_args_tmp_
 echo  --min_delete %min_delete% >> comandline_args_tmp_
 
 echo  --confounding_factors_upper 1.5 >> comandline_args_tmp_
-echo  --view_confounding_factors 0 >> comandline_args_tmp_
+echo  --view_confounding_factors %view_confounding_factors% >> comandline_args_tmp_
 echo  --normalize_type 2 >> comandline_args_tmp_
 echo  --layout %layout% >> comandline_args_tmp_
 echo  --mutual_information_values %mutual_information_values%  >>  comandline_args_tmp_
@@ -81,7 +122,7 @@ echo  --mutual_information_values %mutual_information_values%  >>  comandline_ar
 
 echo  --pause 0 >> comandline_args_tmp_
 
-"%bin%" --@ comandline_args_tmp_ > ..\Causal_Search_Experiment\log.txt
+"%bin%" --@ comandline_args_tmp_ > ..\Causal_Search_Experiment\log2.txt
 
 copy Digraph.png ..\Causal_Search_Experiment /v /y
 

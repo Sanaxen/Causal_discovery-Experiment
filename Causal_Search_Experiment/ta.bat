@@ -35,6 +35,7 @@ if exist ..\work\lingam.model.update (
 	zip -u -j lingam_output.zip ..\work\lingam.model.residual_error_independ.csv
 	zip -u -j lingam_output.zip ..\work\lingam.model.b_probability.csv
 	zip -u -j lingam_output.zip ..\work\comandline_args
+	zip -u -j lingam_output.zip ..\work\comandline_args_tmp_
 	
 :countup	
 	set /a num=num+1

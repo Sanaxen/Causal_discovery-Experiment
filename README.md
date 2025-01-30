@@ -445,34 +445,34 @@ Command_Line_Options.md
 |Experiment  | --independent_variable_skip | 0 or 1  |  0-1 | 0 |
 |Experiment  | --unique_check_rate | 0 or 1  | Number of unique elements  > all size*unique_check_rate -> category| 0.1 |
 |||||||
-|Experiment  unmeasured confounder  | --confounding_factors | 0 or 1 | 0-1 | Set to 1 for latent common variable calculations | 0 |
-|Experiment unmeasured confounder  | --mutual_information_cut | Value | 0-1 | Cut edges using mutual information threshold | 0 |
-|Experiment unmeasured confounder  | --mutual_information_values | 0 or 1 | 0-1 | Set to 1 to output mutual information values between variables in the graph | 0 |
-|Experiment unmeasured confounder  | --distribution_rate | Value > 0 | 0-1 | Multiply this value to generate distribution for μ | 1 |
-|Experiment unmeasured confounder  | --temperature_alp | 1 > Value > 0 | 0-1 | Coefficient for probabilistic transitions in optimization | 0.95 |
-|Experiment unmeasured confounder  | --rho | Value > 0 | 0-1 | Distribution parameter $`rho`$ range (12 times the specified value is set as the mean of μ distribution) | 3 |
-|Experiment unmeasured confounder  | --bins | Value > 0 | 0-1 | Number of bins for mutual information integration | 30 |
-|Experiment unmeasured confounder   | --early_stopping | Number | 1 | Stop calculations when optimization loss does not change for the specified iterations |  |
-|Experiment unmeasured confounder  | --use_intercept | 0 or 1 | 0-1 | Include intercept term in regression results if set to 1 | 0 |
-|Experiment unmeasured confounder  | --loss_data_load | 0 or 1 | 0-1 | Load loss data from model generation when loading a model | 0 |
-|Experiment unmeasured confounder & nonlinear| --nonlinear | 0 or 1 | 0-1 | Applying nonlinear models | 0 |
-|Experiment unmeasured confounder & nonlinear | --use_gpu | 0 or 1 | 0-1 |using pytorch to estimate a nonlinear model. Does it use GPU for computation? | 0 |
-|Experiment unmeasured confounder & nonlinear | --activation_fnc | activation fucntion name|  SELU,tanh,leakyrelu,relu,mish |Specify activation function | tanh |
-|Experiment unmeasured confounder & nonlinear | --use_hsic |  0 or 1 |  0-1 |Should HSIC be used to calculate independence? | 0 |
-|Experiment unmeasured confounder & nonlinear| --use_pnl | 0 or 1 | 0-1 | Use PNL for nonlinear models? | 0 |
-|Experiment unmeasured confounder & nonlinear| --learning_rate | Number | 0-1 | learning_rate| 0.001 |
-|Experiment unmeasured confounder & nonlinear| --n_unit | Number | 1 | Number of units for fully-connected layer|  |
-|Experiment unmeasured confounder & nonlinear| --n_epoch | Number | 1 | Number of epochs| 20 |
-|Experiment  unmeasured confounder & nonlinear| --optimizer | optimizer name | rmsprop,adam,adagrad,sgd | optimizer| rmsprop |
-|Experiment  unmeasured confounder & nonlinear| --minbatch | Number | 1 | minbatch size, 0or1->row, min(2000,row)|  row/5|
-|Experiment unmeasured confounder & nonlinear| --dropout_rate | Number | 0-1 | dropout rate| 0.01 |
-|Experiment unmeasured confounder & nonlinear| --view_confounding_factors | 0 or 1 | 0-1 |Set to 1 if you want estimated unobserved common variables to be plotted. | 0 |
-|Experiment unmeasured confounder & nonlinear| --confounding_factors_upper2 | Number | 0-1 |A lower bound on the estimated causal effect of unobserved common variables.
+|Experiment   with unobserved variables  | --confounding_factors | 0 or 1 | 0-1 | Set to 1 for latent common variable calculations | 0 |
+|Experiment  with unobserved variables  | --mutual_information_cut | Value | 0-1 | Cut edges using mutual information threshold | 0 |
+|Experiment  with unobserved variables  | --mutual_information_values | 0 or 1 | 0-1 | Set to 1 to output mutual information values between variables in the graph | 0 |
+|Experiment  with unobserved variables  | --distribution_rate | Value > 0 | 0-1 | Multiply this value to generate distribution for μ | 1 |
+|Experiment  with unobserved variables  | --temperature_alp | 1 > Value > 0 | 0-1 | Coefficient for probabilistic transitions in optimization | 0.95 |
+|Experiment  with unobserved variables  | --rho | Value > 0 | 0-1 | Distribution parameter $`rho`$ range (12 times the specified value is set as the mean of μ distribution) | 3 |
+|Experiment  with unobserved variables  | --bins | Value > 0 | 0-1 | Number of bins for mutual information integration | 30 |
+|Experiment  with unobserved variables   | --early_stopping | Number | 1 | Stop calculations when optimization loss does not change for the specified iterations |  |
+|Experiment  with unobserved variables  | --use_intercept | 0 or 1 | 0-1 | Include intercept term in regression results if set to 1 | 0 |
+|Experiment  with unobserved variables  | --loss_data_load | 0 or 1 | 0-1 | Load loss data from model generation when loading a model | 0 |
+|Experiment  with unobserved variables & nonlinear| --nonlinear | 0 or 1 | 0-1 | Applying nonlinear models | 0 |
+|Experiment  with unobserved variables & nonlinear | --use_gpu | 0 or 1 | 0-1 |using pytorch to estimate a nonlinear model. Does it use GPU for computation? | 0 |
+|Experiment  with unobserved variables & nonlinear | --activation_fnc | activation fucntion name|  SELU,tanh,leakyrelu,relu,mish |Specify activation function | tanh |
+|Experiment  with unobserved variables & nonlinear | --use_hsic |  0 or 1 |  0-1 |Should HSIC be used to calculate independence? | 0 |
+|Experiment  with unobserved variables & nonlinear| --use_pnl | 0 or 1 | 0-1 | Use PNL for nonlinear models? | 0 |
+|Experiment  with unobserved variables & nonlinear| --learning_rate | Number | 0-1 | learning_rate| 0.001 |
+|Experiment  with unobserved variables & nonlinear| --n_unit | Number | 1 | Number of units for fully-connected layer|  |
+|Experiment  with unobserved variables & nonlinear| --n_epoch | Number | 1 | Number of epochs| 20 |
+|Experiment   with unobserved variables & nonlinear| --optimizer | optimizer name | rmsprop,adam,adagrad,sgd | optimizer| rmsprop |
+|Experiment   with unobserved variables & nonlinear| --minbatch | Number | 1 | minbatch size, 0or1->row, min(2000,row)|  row/5|
+|Experiment  with unobserved variables & nonlinear| --dropout_rate | Number | 0-1 | dropout rate| 0.01 |
+|Experiment  with unobserved variables & nonlinear| --view_confounding_factors | 0 or 1 | 0-1 |Set to 1 if you want estimated unobserved common variables to be plotted. | 0 |
+|Experiment  with unobserved variables & nonlinear| --confounding_factors_upper2 | Number | 0-1 |A lower bound on the estimated causal effect of unobserved common variables.
 Causal effects below this bound are not considered to be unobserved common variables. | 0.05 |
-|Experiment unmeasured confounder & nonlinear| --u1_param | Number | 0-1 | | 0.001 |
-|Experiment unmeasured confounder & nonlinear| --L1_loss | 0 or 1 | 0-1 | 1:use torch.nn.L1Loss | use torch.nn.MSELoss |
-|Experiment unmeasured confounder & nonlinear| --random_pattern | 0 or 1 | 0-1 |Randomly generate substitution patterns for the B matrix? | 0 |
-|Experiment unmeasured confounder & nonlinear| --_Causal_Search_Experiment | 0 or 1 | 0-1 | | 0 |
+|Experiment  with unobserved variables & nonlinear| --u1_param | Number | 0-1 | | 0.001 |
+|Experiment  with unobserved variables & nonlinear| --L1_loss | 0 or 1 | 0-1 | 1:use torch.nn.L1Loss | use torch.nn.MSELoss |
+|Experiment  with unobserved variables & nonlinear| --random_pattern | 0 or 1 | 0-1 |Randomly generate substitution patterns for the B matrix? | 0 |
+|Experiment  with unobserved variables & nonlinear| --_Causal_Search_Experiment | 0 or 1 | 0-1 | | 0 |
 |  | --@ | Response file name | 0-1 | Specify a file describing command-line options (first character in the file must be blank) |  |
 |||||||
 ---
