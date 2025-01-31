@@ -327,6 +327,32 @@ In the test, f1 and f2 are not entered because we want to test whether the corre
 [Nonlinear causal discovery with additive noise models](https://proceedings.neurips.cc/paper_files/paper/2008/file/f7664060cc52bc6f3d620bcedc94a4b6-Paper.pdf)
 
 ---
+## comparison
+For output edges, one-way edges are counted as 1 and 
+bi-directional edges are counted as 1 together.Error counting 
+- methodReverse direction = +1
+- Bidirectional edge not where it should be = +1
+- Edge not where it should be = +1  
+
+<img src="./images/image30.png" width="100%">  
+<img src="./images/image31.png" width="100%">  
+
+ICA-LiNGAM outputs better results on average, except for
+Our methods have yielded relatively good results.  
+
+<img src="./images/image32.png" width="100%">  
+<img src="./images/image33.png" width="100%">  
+As expected, our method resulted in slower computation times than the other methods.
+
+<img src="./images/image34.png" width="100%">  
+Comparisons between methods using deep learning showed generally similarly slow computation times.  
+
+A comparison of methods without deep learning is as follows  
+<img src="./images/image36.png" width="100%">  
+<img src="./images/image35.png" width="100%">  
+
+Overall, it can be seen that ICA-LiNGAM produces good results on average, regardless of the presence of unobserved common causes and nonlinear relationships.  
+
 
 ## method ICA-LiNGAM  
 | data |  Direction reversal|Direction missing|Wasted Edge|  
@@ -350,7 +376,7 @@ In the test, f1 and f2 are not entered because we want to test whether the corre
 |nonlinear_LiNGAM_latest3a|0|0|3|
 |nonlinear_LiNGAM_latest3b|0|0|5|
 |nonlinear_LiNGAM_latest3c|0|0|5|
-|nonlinear|0|0|3|
+|nonlinear|0|0|0|
 |nonlinear2|0|0|0|
 
 
