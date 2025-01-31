@@ -367,6 +367,12 @@ correct answers.
 
 However, not done anything to correct the reverse causal direction.  
 
+As for the calculation time, as explained above, the end of the calculation has not yet been determined.  
+Therefore, the calculation is continued until the loss is no longer expected to fall, 
+so the result adopted as the solution could have been found earlier.   
+Therefore, the calculation time has increased considerably due to the excessive 
+amount of time required to continue the calculation.
+
 --
 ## method ICA-LiNGAM  
 | data |  Direction reversal|Direction missing|Wasted Edge|  
