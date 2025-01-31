@@ -329,8 +329,9 @@ In the test, f1 and f2 are not entered because we want to test whether the corre
 ---
 ## comparison
 For output edges, one-way edges are counted as 1 and 
-bi-directional edges are counted as 1 together.Error counting 
-- methodReverse direction = +1
+bi-directional edges are counted as 1 together.Error counting  method 
+
+- Reverse direction = +1
 - Bidirectional edge not where it should be = +1
 - Edge not where it should be = +1  
 
