@@ -261,21 +261,21 @@ We have tried many things, but nothing has worked. The source code is therefore 
 
 
 <img src="./images/Nonlinear2.png" width="60%">  
-<img src="./Causal_Search_Experiment/output/nonlinear2/Digraph_2.png" width="60%">  
+<img src="./Causal_Search_Experiment/output/nonlinear2/Digraph_2.png" width="50%">  
 
 it can be determined that the loss has converged at 53 times. 
 We can determine that the loss will not decrease any further if we continue the calculation.  
 
-<img src="./Causal_Search_Experiment/output/nonlinear2/loss.png" width="60%">  
+<img src="./Causal_Search_Experiment/output/nonlinear2/loss.png" width="50%">  
 
 That the effects would be removed in order from smallest to largest,
 In this case, we remove up to a causal effect of 0.498 or less.
 
-<img src="./Causal_Search_Experiment/output/nonlinear2/Digraph.png" width="60%">  
+<img src="./Causal_Search_Experiment/output/nonlinear2/Digraph.png" width="50%">  
 
 
 For reference, try [abpnl](https://github.com/rafcc/abpnl) and get the following results  
-<img src="./images/dag.png" width="30%">  
+<img src="./images/dag.png" width="20%">  
 
  $`z \rightarrow y`$ This is completely wrong and backwards.
 
