@@ -354,7 +354,20 @@ A comparison of methods without deep learning is as follows
 
 Overall, it can be seen that ICA-LiNGAM produces good results on average, regardless of the presence of unobserved common causes and nonlinear relationships.  
 
+## Things to watch out for
+These comparison results are for reference only.  
+They are for reference only and do not immediately 
+imply that one is better than the other.  
 
+The data may be the same, but the adjustable parameters are 
+not the same and the assumptions are different.  
+It should also be noted that my experimental implementation of the 
+results is based on the removal of useless edges due to known 
+correct answers.  
+
+However, not done anything to correct the reverse causal direction.  
+
+--
 ## method ICA-LiNGAM  
 | data |  Direction reversal|Direction missing|Wasted Edge|  
 |---------------------|-------------|----------| ---------|
