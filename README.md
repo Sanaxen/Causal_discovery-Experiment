@@ -523,7 +523,9 @@ Causal effects below this bound are not considered to be unobserved common varia
 ## reference document  
 - https://www.ds.shiga-u.ac.jp/inga/
 - https://www.jst.go.jp/kisoken/aip/result/event/jst-riken_sympo2021/pdf/shimizu.pdf
-- https://www.socialpsychology.jp/seminar/pdf/2016SS_SShimizu.pdf
+- https://www.socialpsychology.jp/seminar/pdf/2016SS_SShimizu.pdf  
+- https://github.com/cdt15/lingam
+- https://github.com/rafcc/abpnl
 - S. Shimizu, P. O. Hoyer, A. Hyv舐inen, and A. Kerminen. A linear non-gaussian acyclic model for causal discovery. Journal of Machine Learning Research, 7: 2003--2030, 2006. [PDF]
 - S. Shimizu, T. Inazumi, Y. Sogawa, A. Hyv舐inen, Y. Kawahara, T. Washio, P. O. Hoyer and K. Bollen. DirectLiNGAM: A direct method for learning a linear non-Gaussian structural equation model. Journal of Machine Learning Research, 12(Apr): 1225--1248, 2011.
 - Y. Zeng, S. Shimizu, H. Matsui, F. Sun. Causal discovery for linear mixed data. In Proc. First Conference on Causal Learning and Reasoning (CLeaR2022). PMLR 177, pp. 994-1009, 2022. 
