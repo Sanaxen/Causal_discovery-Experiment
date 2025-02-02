@@ -454,13 +454,14 @@ Command_Line_Options.md
 |  | --diaglam_size | Number | 0-1 | Scaling factor for diagram output size | 20 |
 |  | --x_var | Column name | Variable | Explanatory variable column name or index |  |
 |  | --y_var | Column name | Variable | Target variable column name or index |  |
+|  | --ignore_constant_value_columns | 0 or 1 | 0-1 | Specify 1 to ignore items consisting of only a few fixed values, such as constant values or categorical values. | 0 |
+|  | --unique_check_rate | numeric1 | 0-1 | If the pattern of values is less than the data rows or the difference between the maximum and minimum values is within the specified value, it is considered a categorical value.<br>Jittering is performed for categorical variables | 0 |
 |  | --error_distr | 0 or 1 | 0-1 | Set to 1 to perform residual analysis and output error_distr.csv | 1 |
 |  | --error_distr_size | Number,Number | 0-1 | Size (scaling factor) for residual analysis result images (height and width) | 1,1 |
 |  | --min_cor_delete | Value > 0 | 0-1 | Remove relationships with correlation (absolute value) below this value | -1 |
 |  | --min_delete | Value > 0 | 0-1 | Remove relationships with causal effects (absolute value) below this value | -1 |
 |  | --cor_range_d | Value > 0 | 0-1 | Lower bound of correlation range for relationship output | 0 |
 |  | --cor_range_u | Value > 0 | 0-1 | Upper bound of correlation range for relationship output | 0 |
-|  | --ignore_constant_value_columns | 0 or 1 | 0-1 | Set to 1 to ignore columns with constant values | 0 |
 |  | --lasso_tol | Value | 0-1 | Convergence threshold for LASSO pruning | 0.0001 |
 |  | --lasso_itr_max | Number | 0-1 | Maximum iterations for LASSO pruning convergence | 10000 |
 |  | --load_model | Model file name | Optional | Reevaluate using precomputed data without causal search calculations |  |
