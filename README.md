@@ -327,7 +327,16 @@ In the test, f1 and f2 are not entered because we want to test whether the corre
 [Nonlinear causal discovery with additive noise models](https://proceedings.neurips.cc/paper_files/paper/2008/file/f7664060cc52bc6f3d620bcedc94a4b6-Paper.pdf)
 
 ---
-## comparison
+## comparison  
+The following comparison ignores most of the assumptions made by each algorithm.   
+Algorithms that assume linearity of data are given nonlinear data, 
+and algorithms that assume no unobserved common variables are given data with unobserved common variables.  
+The reason for this seemingly meaningless comparison is that it begs the question, 
+“What if the user does not know the algorithm in detail?” In most cases, 
+users enter data without considering the assumptions of the algorithm.  
+Furthermore, we have noticed that such users tend to evaluate results harshly, 
+even if the assumptions of the algorithm are wrong.  
+
 For output edges, one-way edges are counted as 1 and 
 bi-directional edges are counted as 1 together.Error counting  method 
 
@@ -337,20 +346,19 @@ bi-directional edges are counted as 1 together.Error counting  method
 
 <img src="./images/image30.png" width="100%">  
 <img src="./images/image31.png" width="100%">  
+<img src="./images/image32.png" width="100%">  
 
 ICA-LiNGAM outputs better results on average, except for
 Our methods have yielded relatively good results.  
 
-<img src="./images/image32.png" width="100%">  
 <img src="./images/image33.png" width="100%">  
-As expected, our method resulted in slower computation times than the other methods.
+<img src="./images/image38.png" width="100%">  
+<img src="./images/image39.png" width="100%">  
 
 <img src="./images/image34.png" width="100%">  
-Comparisons between methods using deep learning showed generally similarly slow computation times.  
-
-A comparison of methods without deep learning is as follows  
-<img src="./images/image36.png" width="100%">  
 <img src="./images/image35.png" width="100%">  
+<img src="./images/image36.png" width="100%">  
+<img src="./images/image37.png" width="100%">  
 
 Overall, it can be seen that ICA-LiNGAM produces good results on average, regardless of the presence of unobserved common causes and nonlinear relationships.  
 
