@@ -1,7 +1,8 @@
 # Auto detect text files and perform LF normalization
 * text=auto
 
-*..ipynb linguist-language=cpp
+*.ipynb linguist-language=cpp
+*.r linguist-language=R
 
 *.csv text eol=crlf
 *.sln text eol=crlf
