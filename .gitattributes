@@ -2,6 +2,7 @@
 * text=auto
 
 *.ipynb linguist-language=cpp
+*.r linguist-language=R
 
 *.csv text eol=crlf
 *.sln text eol=crlf
